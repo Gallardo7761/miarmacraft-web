@@ -1,0 +1,305 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    /* Esto permite que el main ocupe el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Minecrafter';
+    src: url("../fonts/minecrafter.ttf");
+}
+
+@font-face {
+    font-family: 'MinecraftLight';
+    src: url("../fonts/minecraft.ttf");
+}
+
+.bg-mmc {
+    background-color: #2ca268;
+}
+
+.bg-mmc:hover {
+    background-color: rgb(7, 90, 49);
+}
+
+.bg-custom {
+    background: linear-gradient(90deg, #55ff55, #00aa00);
+}
+
+.bg-admin {
+    background: linear-gradient(90deg, #9bff9b, #36e436);
+}
+
+.bg-mod {
+    background: linear-gradient(90deg, #ffff55, #ffd900);
+
+}
+
+.bg-dev {
+    background: linear-gradient(90deg, #ff55ff, #6c00aa);
+}
+
+.shadowed {
+    text-shadow: 2px 2px 2px #5e5e5e;
+}
+
+.minecrafter {
+    font-family: 'Minecrafter';
+}
+
+.minecraft-light {
+    font-family: 'MinecraftLight';
+}
+
+.btn-text {
+    font-size: 1.5em;
+}
+
+.body-img {
+    background-image: url("../images/bg_dirt.webp");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    flex: 1;
+}
+
+.body-solid {
+    background-color: #4e575e;
+}
+
+a.navbar-brand {
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+a.navbar-brand:hover {
+    color: rgb(55, 89, 151);
+}
+
+.navbar {
+    z-index: 900;
+}
+
+.navbar+.navbar {
+    z-index: 800;
+    top: 67px;
+}
+
+.badge-implement {
+    background-color: #007bff;
+    /* Azul */
+    color: white;
+}
+
+.badge-bug {
+    background-color: #dc3545;
+    /* Rojo */
+    color: white;
+}
+
+.badge-mejora {
+    background-color: #28a745;
+    /* Verde */
+    color: white;
+}
+
+.badge-sugerencia {
+    background-color: #ffc107;
+    /* Amarillo */
+    color: black;
+}
+
+.badge-mundo {
+    background-color: #17a2b8;
+    /* Cian */
+    color: white;
+}
+
+.badge-reglas {
+    background-color: #6f42c1;
+    /* Púrpura */
+    color: white;
+}
+
+.badge-eventos {
+    background-color: #fd7e14;
+    /* Naranja */
+    color: white;
+}
+
+.badge-default {
+    background-color: #6c757d;
+    /* Gris */
+    color: white;
+}
+
+.customBorder {
+    border-width: 3px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Style for the image inside the tooltip */
+.tooltip img {
+    display: inline-block;
+    width: 40px;
+    height: auto;
+}
+
+.vote-count {
+    font-size: 1.5em;
+}
+
+.btn-outline-danger {
+    color: #ff2424;
+    border-color: #ff2424;
+}
+
+/* Estilos para bloques de código */
+pre {
+    background-color: #2d2d2d;
+    /* Fondo oscuro */
+    color: #ccc;
+    /* Color del texto */
+    padding: 16px;
+    /* Espaciado interior */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    font-size: 14px;
+    /* Tamaño del texto */
+    overflow-x: auto;
+    /* Scroll horizontal si es necesario */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+/* Estilos para elementos <code> dentro de <pre> */
+pre>code {
+    background-color: #2d2d2d;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    /* Fuente monospace con ligaduras si se soporta */
+    color: #f8f8f2;
+    /* Color del código */
+    line-height: 1.6;
+    /* Altura de línea */
+    white-space: pre-wrap;
+    /* Mantiene saltos de línea */
+}
+
+/* Estilos para resaltar sintaxis */
+code {
+    background-color: #44475a;
+    /* Fondo del código inline */
+    color: #f8f8f2;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Resaltado para palabras clave */
+code .keyword {
+    color: #ff79c6;
+    /* Rosa */
+    font-weight: bold;
+}
+
+/* Resaltado para strings */
+code .string {
+    color: #f1fa8c;
+    /* Amarillo */
+}
+
+/* Resaltado para comentarios */
+code .comment {
+    color: #6272a4;
+    /* Gris */
+    font-style: italic;
+}
+
+/* Resaltado para funciones */
+code .function {
+    color: #50fa7b;
+    /* Verde */
+    font-weight: bold;
+}
+
+/* Resaltado para números */
+code .number {
+    color: #bd93f9;
+    /* Morado */
+}
+
+/*
+PONER EN cookie.jsx
+*/
+
+.cookie {
+    display: flex;
+    width: 420px;
+    height: 72px;
+    background-color: rgba(33, 37, 41, 0.9);
+    /* Hacer el fondo ligeramente transparente */
+    position: fixed;
+    bottom: 0.5%;
+    left: 0.5%;
+    padding: 10px 20px;
+    border: 1px solid #b2b3b4;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Agregar sombra para destacar */
+}
