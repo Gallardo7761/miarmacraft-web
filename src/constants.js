@@ -1,6 +1,8 @@
 'use strict';
 
-const ADMIN_ROLE = 1;
-const PLAYER_ROLE = 0;
+const CONSTANTS = {
+    ADMIN_ROLE: 1,
+    PLAYER_ROLE: 0
+}
 
-export { ADMIN_ROLE, PLAYER_ROLE };
+export default { CONSTANTS };
