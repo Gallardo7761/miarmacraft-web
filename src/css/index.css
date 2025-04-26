@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Minecrafter';
+    src: url("/miarmacraft/fonts/minecrafter.ttf");
+}
+
+@font-face {
+    font-family: 'MinecraftLight';
+    src: url("/miarmacraft/fonts/minecraft.ttf");
+}
