@@ -1,9 +1,25 @@
 @font-face {
-    font-family: 'Minecrafter';
-    src: url("/miarmacraft/fonts/minecrafter.ttf");
+    font-family: 'MCTitles';
+    src: url("/miarmacraft/fonts/mc-titles.ttf");
 }
 
 @font-face {
-    font-family: 'MinecraftLight';
-    src: url("/miarmacraft/fonts/minecraft.ttf");
+    font-family: 'MCText';
+    src: url("/miarmacraft/fonts/mc-text.ttf");
+}
+
+:root {
+    --grass-green: #5E7C16;
+    --light-green: #88C070;
+    --dirt-brown: #835C3B;
+    --light-brown: #C2A273;
+    --stone-gray: #7D7D7D;
+    --sky-blue: #70C0E8;
+    --white: #F0F0F0;
+    --black: #1E1E1E;
+}
+
+
+* {
+    font-family: 'MCText';
 }
