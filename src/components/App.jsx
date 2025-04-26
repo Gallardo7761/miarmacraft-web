@@ -1,12 +1,13 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "./layout/Header";
 import Inicio from "./pages/Inicio";
 import Sugerencias from "./pages/Sugerencias";
 import Mods from "./pages/Mods";
 import Jugadores from "./pages/Jugadores";
-import Test from "./pages/Test";
+import Footer from "./layout/Footer";
 
 const App = () => {
+    const routesWithFooter = ["/"]
     return (
         <>
             <Header />
@@ -15,8 +16,8 @@ const App = () => {
                 <Route path="/sugerencias" element={<Sugerencias />} />
                 <Route path="/mods" element={<Mods />} />
                 <Route path="/jugadores" element={<Jugadores />} />
-                <Route path="/test" element={<Test />} />
             </Routes>
+            {routesWithFooter.includes(useLocation().pathname) ? <Footer /> : null}
         </>
     );
 }

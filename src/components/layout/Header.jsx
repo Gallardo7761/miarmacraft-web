@@ -39,7 +39,7 @@ const Header = () => {
                         JUGADORES
                     </Link>
                     <Link to="/login">
-                        <button className="minecraft-btn">
+                        <button disabled className="minecraft-btn">
                             INICIAR SESION
                         </button>
                     </Link>
@@ -61,7 +61,7 @@ const Header = () => {
                         JUGADORES
                     </Link>
                     <Link to="/login" onClick={closeMenu}>
-                        <button className="minecraft-btn mt-2">
+                        <button disabled className="minecraft-btn mt-2">
                             INICIAR SESION
                         </button>
                     </Link>

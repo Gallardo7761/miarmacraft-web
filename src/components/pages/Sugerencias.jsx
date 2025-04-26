@@ -1,6 +1,8 @@
+import Building from "../layout/Building";
+
 const Sugerencias = () => {
     return (
-        <></>
+        <Building />
     );
 }
 

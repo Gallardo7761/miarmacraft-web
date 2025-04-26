@@ -1,75 +1,92 @@
-// Componente genérico para cada paso
-const StepSection = ({ title, description, children, imgSrc, bgSrc, reverse }) => (
-  <section
-    className="min-vh-100 d-flex align-items-center justify-content-center bg-cover bg-center"
-    style={{ backgroundImage: `url('${bgSrc}')` }}
-  >
-    <div className="minecraft-card container p-5 mx-3">
-      <div className={`row align-items-center ${reverse ? 'flex-row-reverse' : ''}`}>
-        <div className="col-md-6">
-          <h2 className="display-4 mb-4">{title}</h2>
-          <p className="lead mb-4">{description}</p>
-          {children}
-        </div>
-        <div className="col-md-6 text-center">
-          <img
-            src={imgSrc}
-            alt={title}
-            className="img-fluid rounded"
-            style={{ maxWidth: '300px' }}
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-);
+import CustomContainer from "../layout/CustomContainer";
+import { Col, Row, Modal } from "react-bootstrap";
+import { useState } from "react";
 
 const Inicio = () => {
+  const [modalShown, setModalShown] = useState(false);
+
   const copiarIP = () => {
-    navigator.clipboard.writeText('miarma.net')
-      .then(() => alert('IP copiada al portapapeles: miarma.net'))
-      .catch(() => alert('Error al copiar la IP'));
+    navigator.clipboard.writeText('miarma.net');
+    setModalShown(true);
   };
 
   return (
-    <main className="min-vh-100 d-flex flex-column p-0 m-0">
-      <StepSection
-        title="1. Descarga el Launcher"
-        description="Para comenzar tu aventura en MiarmaCraft, descarga nuestro launcher oficial o la versión piratilla. ¡Elige y empieza ya!"
-        imgSrc="/miarmacraft/images/launcher.png"
-        bgSrc="/miarmacraft/images/launcher_bg.jpg"
-      >
-        <div className="d-flex gap-3">
-          <a href="#" className="minecraft-btn">Launcher Oficial</a>
-          <a href="#" className="minecraft-btn">Launcher Piratilla XD</a>
-        </div>
-      </StepSection>
+    <CustomContainer>
+      <h1 className="text-center mb-5">Pasos para unirse al servidor</h1>
 
-      <hr className="minecraft-hr" />
+      <Row className="g-4 align-items-stretch">
+        {[1, 2, 3].map((step) => (
+          <Col key={step} sm={12} md={4} className="d-flex">
+            <div className="minecraft-card flex-fill d-flex flex-column">
 
-      <StepSection
-        title="2. Configura y Descarga el Modpack"
-        description="Aumenta la RAM del juego a 4 GB o más y descarga nuestro modpack exclusivo para disfrutar al máximo de MiarmaCraft."
-        imgSrc="/miarmacraft/images/modpack.png"
-        bgSrc="/miarmacraft/images/modpack_bg.jpg"
-        reverse
-      >
-        <a href="#" className="minecraft-btn">Descargar Modpack</a>
-      </StepSection>
+              {/* —— Contenido “arriba” ————————————————————— */}
+              <div className="card-body">
+                <h1 className="text-center">
+                  Paso {step}
+                </h1>
+                <hr className="minecraft-hr" />
 
-      <hr className="minecraft-hr" />
+                {step === 1 && (
+                  <>
+                    <p>Necesitas tener el juego para entrar en el servidor (gracias capitán obvio) así que tienes dos opciones:
+                    </p>
+                    <ul>
+                      <li className="text-start">Comprarlo en la página oficial.</li>
+                      <li className="text-start">Descargar el launcher SKLauncher (no recomendado por nosotros pero si no te puedes permitir el oficial es una opción válida).</li>
+                    </ul>
+                  </>
+                )}
 
-      <StepSection
-        title="3. Copia la IP"
-        description="Copia la IP de nuestro servidor y pégala en el launcher para unirte a la partida."
-        imgSrc="/miarmacraft/images/server.png"
-        bgSrc="/miarmacraft/images/ip_bg.jpg"
-      >
-        <button onClick={copiarIP} className="minecraft-btn">
-          Copiar IP: miarma.net
-        </button>
-      </StepSection>
-    </main>
+                {step === 2 && (
+                  <p>
+                    Una vez instales el juego, necesitarás descargar el paquete de mods que usamos en el servidor.
+                  </p>
+                )}
+
+                {step === 3 && (
+                  <p>Por último solamente te queda copiar la dirección del servidor e introducirla en el juego para conectarte y jugar :D
+                  </p>
+                )}
+              </div>
+
+              {/* —— Footer con el hr + botones ————————————————— */}
+              <div className="card-footer mt-auto d-flex flex-column align-items-center gap-2">
+                <hr className="minecraft-hr w-100" />
+                {step === 1 && (
+                  <>
+                    <button className="minecraft-btn">Comprar Minecraft</button>
+                    <button className="minecraft-btn danger">Descargar SKLauncher</button>
+                  </>
+                )}
+                {step === 2 && (
+                  <button className="minecraft-btn">Descargar modpack</button>
+                )}
+                {step === 3 && (
+                  <button
+                    onClick={() => { copiarIP(); setModalShown(true); }}
+                    className="minecraft-btn"
+                  >
+                    Copiar IP
+                  </button>
+                )}
+              </div>
+
+            </div>
+          </Col>
+        ))}
+      </Row>
+
+
+      <Modal show={modalShown} onHide={() => setModalShown(false)}>
+        <Modal.Body className="text-center">
+          <h1>IP COPIADA</h1>
+          <p>Nos vemos dentro del server.</p>
+          <button onClick={() => setModalShown(false)} className="minecraft-btn">
+            Cerrar
+          </button>
+        </Modal.Body>
+      </Modal>
+    </CustomContainer>
   );
 };
 
