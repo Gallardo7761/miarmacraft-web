@@ -1,6 +1,6 @@
 import { faFilter, faFilePdf, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AnimatedDropdown from './AnimatedDropdown';
+import AnimatedDropdown from './util/AnimatedDropdown';
 import Button from 'react-bootstrap/Button';
 import { CONSTANTS } from '../util/constants';
 import IfRole from './Auth/IfRole';
