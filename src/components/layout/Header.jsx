@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Container, Collapse } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../../css/Header.css';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -29,9 +28,6 @@ const Header = () => {
                     <Link to="/" className='nav-link'>
                         INICIO
                     </Link>
-                    <Link to="/sugerencias" className='nav-link'>
-                        SUGERENCIAS
-                    </Link>
                     <Link to="/mods" className='nav-link'>
                         MODS
                     </Link>
@@ -50,9 +46,6 @@ const Header = () => {
                 <div id="header-collapse" className="header-nav-mobile d-lg-none">
                     <Link to="/" className='nav-link'>
                         INICIO
-                    </Link>
-                    <Link to="/sugerencias" onClick={closeMenu} className='nav-link'>
-                        SUGERENCIAS
                     </Link>
                     <Link to="/mods" onClick={closeMenu} className='nav-link'>
                         MODS
