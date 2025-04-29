@@ -22,6 +22,7 @@
     "dompurify": "^3.2.5",
     "file-saver": "^2.0.5",
     "framer-motion": "^12.6.1",
+    "pixelarticons": "^1.8.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",

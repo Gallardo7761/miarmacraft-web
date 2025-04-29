@@ -5,4 +5,4 @@ const CONSTANTS = {
     PLAYER_ROLE: 0
 }
 
-export default { CONSTANTS };
+export { CONSTANTS };

@@ -36,12 +36,12 @@
      =========================== */
   @font-face {
     font-family: 'MCTitles';
-    src: url('/miarmacraft/fonts/mc-titles.ttf');
+    src: url('/fonts/mc-titles.ttf');
   }
   
   @font-face {
     font-family: 'MCText Regular';
-    src: url('/miarmacraft/fonts/mc-text-regular.otf');
+    src: url('/fonts/mc-text-regular.otf');
   }
   
   /* ===========================

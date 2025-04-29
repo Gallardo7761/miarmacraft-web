@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    const BASE_URL = config.apiConfig.baseUrl;
+    const BASE_URL = config.apiConfig.authUrl;
     const VALIDATE_URL = `${BASE_URL}${config.apiConfig.endpoints.auth.validateToken}`;
 
     const checkAuth = async () => {
@@ -50,14 +50,14 @@ export const AuthProvider = ({ children }) => {
   
     try {
       const res = await axios.post(LOGIN_URL, formData);
-      const { token, member, tokenTime } = res.data.data;
+      const { token, loggedUser, tokenTime } = res.data.data;
   
       localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(member));
+      localStorage.setItem("user", JSON.stringify(loggedUser));
       localStorage.setItem("tokenTime", tokenTime);
   
       setToken(token);
-      setUser(member);
+      setUser(loggedUser);
       setAuthStatus("authenticated");
     } catch (err) {
       console.error("Error al iniciar sesión:", err);

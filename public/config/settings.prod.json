@@ -1,0 +1,30 @@
+{
+    "apiConfig": {
+        "baseUrl": "https://api.miarma.net/mmc/v1",
+        "coreUrl": "https://api.miarma.net/v1",
+        "authUrl": "https://api.miarma.net/auth/v1",
+        "endpoints": {
+            "auth": {
+                "login": "/login",
+                "validateToken": "/validate-token",
+                "refreshToken": "/refresh-token",
+                "changePassword": "/change-password",
+                "loginValidate": "/login/validate"
+            },
+            "mods": {
+                "all": "/mods",
+                "byId": "/mods/:mod_id",
+                "modStatus": "/mods/:mod_id/status"
+            },
+            "players": {
+                "all": "/players",
+                "byId": "/players/:player_id",
+                "playerStatus": "/players/:player_id/status",
+                "playerRole": "/players/:player_id/role",
+                "playerExists": "/players/:player_id/exists",
+                "playerAvatar": "/players/:player_id/avatar",
+                "playerInfo": "/players/me"
+            }
+        }
+    }
+}

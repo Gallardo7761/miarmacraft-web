@@ -13,13 +13,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/*<ConfigProvider>
+    <ConfigProvider>
       <AuthProvider>
-        
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </AuthProvider>
-    </ConfigProvider> */}
-    <BrowserRouter basename='/miarmacraft'>
-      <App />
-    </BrowserRouter>
+    </ConfigProvider>
   </StrictMode>
 )

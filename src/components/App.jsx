@@ -5,9 +5,11 @@ import Sugerencias from "./pages/Sugerencias";
 import Mods from "./pages/Mods";
 import Jugadores from "./pages/Jugadores";
 import Footer from "./layout/Footer";
+import Login from "./pages/Login";
 
 const App = () => {
-    const routesWithFooter = ["/"]
+    const routesWithFooter = ["/", "/login"]
+    const location = useLocation().pathname;
     return (
         <>
             <Header />
@@ -16,8 +18,9 @@ const App = () => {
                 <Route path="/sugerencias" element={<Sugerencias />} />
                 <Route path="/mods" element={<Mods />} />
                 <Route path="/jugadores" element={<Jugadores />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
-            {routesWithFooter.includes(useLocation().pathname) ? <Footer /> : null}
+            {routesWithFooter.includes(location) ? <Footer /> : null}
         </>
     );
 }

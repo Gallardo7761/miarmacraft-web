@@ -7,7 +7,6 @@ export default defineConfig({
     host: "localhost",
     port: 3000,
   },
-  base: '/miarmacraft/',
   build: {
     chunkSizeWarningLimit: 1000, // para no ver el warning
     rollupOptions: {

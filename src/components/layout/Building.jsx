@@ -8,7 +8,7 @@ const Building = () => {
         <Col xs={12} md={6} className="d-flex">
           <div className="minecraft-card text-center flex-fill p-5">
             <img
-              src="/miarmacraft/images/building.webp"
+              src="/images/building.webp"
               alt="Página en construcción"
               className="construction-img img-fluid mb-4"
             />

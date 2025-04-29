@@ -53,10 +53,10 @@ const Inicio = () => {
               <div className="card-footer mt-auto d-flex flex-column align-items-center gap-2">
                 <hr className="minecraft-hr w-100" />
                 {step === 1 && (
-                  <>
+                  <div className="d-flex gap-2">
                     <button className="minecraft-btn">Comprar Minecraft</button>
                     <button className="minecraft-btn danger">Descargar SKLauncher</button>
-                  </>
+                  </div>
                 )}
                 {step === 2 && (
                   <button className="minecraft-btn">Descargar modpack</button>

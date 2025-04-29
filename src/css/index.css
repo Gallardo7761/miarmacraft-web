@@ -39,35 +39,35 @@
      =========================== */
 @font-face {
     font-family: 'MCTitles';
-    src: url('/miarmacraft/fonts/mc-titles.ttf');
+    src: url('/fonts/mc-titles.ttf');
 }
 
 @font-face {
     font-family: 'MCText Regular';
-    src: url('/miarmacraft/fonts/mc-text-regular.otf');
+    src: url('/fonts/mc-text-regular.otf');
 }
 
 @font-face {
     font-family: 'MCText Bold';
-    src: url('/miarmacraft/fonts/mc-text-bold.otf');
+    src: url('/fonts/mc-text-bold.otf');
 }
 
 @font-face {
     font-family: 'MCText Italic';
-    src: url('/miarmacraft/fonts/mc-text-italic.otf');
+    src: url('/fonts/mc-text-italic.otf');
 }
 
 @font-face {
     font-family: 'MCText Bold Italic';
-    src: url('/miarmacraft/fonts/mc-text-bold-italic.otf');
+    src: url('/fonts/mc-text-bold-italic.otf');
 }
 
 /* ===========================
      RESET BÁSICO
      =========================== */
 body {
-    font-family: 'MCText Regular', sans-serif;
-    background-image: url("/miarmacraft/images/bg_dirt.webp");
+    font-family: 'MCText Regular';
+    background-image: url("/images/bg_dirt.webp");
     color: var(--text-color);
 }
 
@@ -77,14 +77,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'MCTitles', sans-serif;
+    font-family: 'MCTitles';
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 0.5em;
 }
 
 p {
-    font-family: 'MCText Regular', sans-serif;
+    font-family: 'MCText Regular';
     margin-bottom: 1em;
 }
 
@@ -106,7 +106,7 @@ p {
     background-color: var(--background-color);
     padding: var(--spacing-md);
     color: var(--text-color);
-    font-family: 'MCText Regular', sans-serif;
+    font-family: 'MCText Regular';
     font-size: 1.4rem;
     /* Biseles brutotes */
     box-shadow:
@@ -155,10 +155,9 @@ p {
 .minecraft-input {
     background-color: var(--primary-color);
     border: 3px solid var(--btn-primary-border-color);
-    box-shadow: inset 0 6px var(--btn-tertiary-inner-shadow-color);
     color: var(--text-color);
-    font-family: 'MCText Regular', sans-serif;
-    font-size: 1rem;
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
     height: 40px;
     padding: var(--spacing-sm);
     width: 100%;
@@ -168,6 +167,64 @@ p {
     outline: none;
     background-color: var(--secondary-color);
 }
+
+/* ===========================
+     CHECKBOX
+     =========================== */
+
+.minecraft-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: var(--spacing-sm);
+    user-select: none;
+    font-family: 'MCText Regular';
+}
+
+.minecraft-checkbox {
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    border: 3px solid var(--btn-primary-border-color);
+    box-shadow:
+        inset 4px 4px var(--btn-tertiary-inner-shadow-color),
+        inset -4px -4px #1d1d1d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--accent-color);
+    overflow: hidden;
+}
+
+.pixel-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    pointer-events: none;
+    color: white;
+}
+
+.pixel-icon.big {
+    width: 40px;
+    height: 40px;
+}
+
+.minecraft-checkbox.checked {
+    background-color: var(--btn-primary-inner-color);
+    box-shadow:
+        inset 4px 4px var(--btn-primary-inner-border-lt-color),
+        inset -4px -4px var(--btn-primary-inner-border-br-color);
+    border-color: var(--btn-primary-border-color);
+}
+
+.minecraft-checkbox-label {
+    color: var(--text-color);
+}
+
+
 
 /* ===========================
      BOTÓN (General)
@@ -180,7 +237,7 @@ p {
         inset 3px 3px var(--btn-primary-inner-border-lt-color),
         inset -3px -9px var(--btn-primary-inner-border-br-color);
     color: var(--text-color);
-    font-family: 'MCTitles', sans-serif;
+    font-family: 'MCTitles';
     font-size: 1.2em;
     padding: 8px 16px;
     text-decoration: none;
@@ -197,7 +254,7 @@ p {
         inset 3px 3px var(--btn-danger-inner-border-lt-color),
         inset -3px -9px var(--btn-danger-inner-border-br-color);
     color: var(--text-color);
-    font-family: 'MCTitles', sans-serif;
+    font-family: 'MCTitles';
     font-size: 1.2em;
     padding: 8px 16px;
     cursor: pointer;
@@ -213,7 +270,7 @@ button[disabled].minecraft-btn {
         inset 3px 3px var(--btn-primary-inner-border-lt-color),
         inset -3px -9px var(--btn-primary-inner-border-br-color);
     color: var(--bs-dark);
-    font-family: 'MCTitles', sans-serif;
+    font-family: 'MCTitles';
     font-size: 1.2em;
     padding: 8px 16px;
     cursor: not-allowed;
@@ -241,7 +298,7 @@ button[disabled].minecraft-btn {
         inset 6px 6px 0 var(--btn-tertiary-inner-shadow-color),
         inset -6px -6px 0 #1d1d1d,
         6px 6px 10px rgba(0, 0, 0, 0.5) !important;
-    font-family: 'MCText Regular', sans-serif;
+    font-family: 'MCText Regular';
     color: var(--text-color);
 }
 
@@ -257,7 +314,7 @@ button[disabled].minecraft-btn {
 
 /* Título */
 .modal-title {
-    font-family: 'MCTitles', sans-serif !important;
+    font-family: 'MCTitles' !important;
     font-size: 1.6rem !important;
     color: var(--text-color) !important;
 }
@@ -266,7 +323,7 @@ button[disabled].minecraft-btn {
 .btn-close {
     background: none !important;
     border: none !important;
-    font-family: 'MCTitles', sans-serif !important;
+    font-family: 'MCTitles' !important;
     font-size: 1.2rem !important;
     line-height: 1 !important;
     opacity: 1 !important;
@@ -280,7 +337,7 @@ button[disabled].minecraft-btn {
 /* Body */
 .modal-body {
     padding: var(--spacing-md) var(--spacing-lg) !important;
-    font-family: 'MCText Regular', sans-serif !important;
+    font-family: 'MCText Regular' !important;
     font-size: 1.4rem !important;
     text-align: center !important;
 }
@@ -308,7 +365,7 @@ button[disabled].minecraft-btn {
     background-color: var(--primary-color);
     padding: var(--spacing-lg) var(--spacing-md);
     color: var(--text-color);
-    font-family: 'MCText Regular', sans-serif;
+    font-family: 'MCText Regular';
     text-align: center;
 
     /* Igual que el nav pero en la parte superior */
