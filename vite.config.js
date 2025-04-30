@@ -10,7 +10,7 @@ export default defineConfig({
   base: '/miarmacraft/',
   resolve: {
     alias: {
-      '@': '/src/',
+      '@/': '/src/',
     },
   },
   build: {

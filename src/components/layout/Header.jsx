@@ -20,11 +20,13 @@ const Header = () => {
         <header className="header position-relative glassmorphism sticky-top">
             <Container fluid className="d-flex justify-content-between align-items-center p-0">
                 <div className="header-logo">
-                    <img
-                        src={`${import.meta.env.BASE_URL}images/miarmacraft.svg`}
-                        className="img-fluid"
-                        style={{ maxHeight: '60px' }}
-                    />
+                    <Link to="/">
+                        <img
+                            src={`${import.meta.env.BASE_URL}images/miarmacraft.svg`}
+                            className="img-fluid"
+                            style={{ maxHeight: '60px' }}
+                        />
+                    </Link>
                 </div>
                 <button
                     className="menu-toggle d-lg-none"
