@@ -8,8 +8,8 @@ import Footer from "./layout/Footer";
 import Login from "./pages/Login";
 
 const App = () => {
+    const location = useLocation().pathname.replace(import.meta.env.BASE_URL, '/');
     const routesWithFooter = ["/", "/login"]
-    const location = useLocation().pathname;
     return (
         <>
             <Header />
@@ -19,6 +19,7 @@ const App = () => {
                 <Route path="/mods" element={<Mods />} />
                 <Route path="/jugadores" element={<Jugadores />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/privacidad" element={null} />
             </Routes>
             {routesWithFooter.includes(location) ? <Footer /> : null}
         </>

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, cloneElement } from 'react';
 import { Button } from 'react-bootstrap';
 import { AnimatePresence, motion as _motion } from 'framer-motion';
-import '../../css/AnimatedDropdown.css';
+import '@/css/AnimatedDropdown.css';
 
 const AnimatedDropdown = ({
   trigger,

@@ -1,5 +1,5 @@
-import CustomContainer from "../layout/CustomContainer";
-import { useAuth } from "../../hooks/useAuth";
+import CustomContainer from "@/components/layout/CustomContainer";
+import { useAuth } from "@/hooks/useAuth";
 import PasswordInput from "./PasswordInput";
 import { Alert } from "react-bootstrap";
 import CustomCheckbox from "./CustomCheckbox";

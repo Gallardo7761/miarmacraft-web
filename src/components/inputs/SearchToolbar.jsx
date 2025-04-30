@@ -1,9 +1,9 @@
 import { faFilter, faFilePdf, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AnimatedDropdown from './util/AnimatedDropdown';
+import AnimatedDropdown from '@/components/util/AnimatedDropdown';
 import Button from 'react-bootstrap/Button';
-import { CONSTANTS } from '../util/constants';
-import IfRole from './Auth/IfRole';
+import { CONSTANTS } from '@/constants';
+import IfRole from '@/components/auth/IfRole';
 
 const SearchToolbar = ({ searchTerm, onSearchChange, filtersComponent, onCreate, onPDF }) => (
     <div className="sticky-toolbar search-toolbar-wrapper">

@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { Card, CloseButton } from "react-bootstrap";
-import "../../css/FileUpload.css";
+import "@/css/FileUpload.css";
 
 const MAX_FILE_SIZE_MB = 10;
 

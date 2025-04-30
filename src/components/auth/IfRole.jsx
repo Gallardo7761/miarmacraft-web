@@ -1,4 +1,4 @@
-import { useAuth } from "../../hooks/useAuth.js";
+import { useAuth } from "@/hooks/useAuth.js";
 
 const IfRole = ({ roles, children }) => {
   const { user, authStatus } = useAuth();

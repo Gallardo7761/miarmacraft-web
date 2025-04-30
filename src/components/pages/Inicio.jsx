@@ -1,4 +1,4 @@
-import CustomContainer from "../layout/CustomContainer";
+import CustomContainer from "@/components/layout/CustomContainer";
 import { Col, Row, Modal } from "react-bootstrap";
 import { useState } from "react";
 
@@ -12,20 +12,19 @@ const Inicio = () => {
 
   return (
     <CustomContainer>
-      <h1 className="text-center mb-5">Pasos para unirse al servidor</h1>
+      <h1 className="text-center mt3 mb-5">Pasos para unirse al servidor</h1>
 
-      <Row className="g-4 align-items-stretch">
+      <Row className="g-4 align-items-stretch mb-5">
         {[1, 2, 3].map((step) => (
           <Col key={step} sm={12} md={4} className="d-flex">
             <div className="minecraft-card flex-fill d-flex flex-column">
 
               {/* —— Contenido “arriba” ————————————————————— */}
-              <div className="card-body">
-                <h1 className="text-center">
-                  Paso {step}
-                </h1>
-                <hr className="minecraft-hr" />
+              <h1 className="header text-center">
+                Paso {step}
+              </h1>
 
+              <div className="card-body">
                 {step === 1 && (
                   <>
                     <p>Necesitas tener el juego para entrar en el servidor (gracias capitán obvio) así que tienes dos opciones:
@@ -53,7 +52,7 @@ const Inicio = () => {
               <div className="card-footer mt-auto d-flex flex-column align-items-center gap-2">
                 <hr className="minecraft-hr w-100" />
                 {step === 1 && (
-                  <div className="d-flex gap-2">
+                  <div className="d-flex flex-column gap-2">
                     <button className="minecraft-btn">Comprar Minecraft</button>
                     <button className="minecraft-btn danger">Descargar SKLauncher</button>
                   </div>

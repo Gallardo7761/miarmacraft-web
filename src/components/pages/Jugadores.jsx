@@ -1,4 +1,4 @@
-import Building from "../layout/Building";
+import Building from "@/components/layout/Building";
 
 const Jugadores = () => {
     return (

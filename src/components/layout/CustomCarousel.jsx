@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import '../css/CustomCarousel.css';
+import '@/css/CustomCarousel.css';
 
 const CustomCarousel = ({ images }) => {
     const settings = {

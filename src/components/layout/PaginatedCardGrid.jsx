@@ -1,4 +1,4 @@
-import LoadingIcon from './util/LoadingIcon';
+import LoadingIcon from '@/components/util/LoadingIcon';
 
 const PaginatedCardGrid = ({
   items = [],

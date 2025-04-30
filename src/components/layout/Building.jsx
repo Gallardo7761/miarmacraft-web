@@ -1,4 +1,4 @@
-import CustomContainer from '../layout/CustomContainer';
+import CustomContainer from '@/components/layout/CustomContainer';
 import { Row, Col } from 'react-bootstrap';
 
 const Building = () => {
