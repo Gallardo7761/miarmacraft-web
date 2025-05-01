@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="footer-content">
       <p>© 2025 <a href="https://miarma.net/">miarma.net</a> | Todos los derechos reservados.</p>
       <div className="footer-links">
-        <a href="/privacy.txt" className="minecraft-btn">
+        <a href="/miarmacraft/privacy.txt" className="minecraft-btn">
           Politica de Privacidad
         </a>
       </div>
