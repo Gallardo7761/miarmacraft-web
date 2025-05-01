@@ -1,0 +1,6 @@
+privacy.txt
+
+1. No recopilamos ningun dato personal.
+2. No mandaremos correos basura en la lista de correo.
+3. No usaremos cookies de terceros.
+4. Es bastante probable que usemos tu direccion IPv4 por motivos de funcionamiento del servidor.
