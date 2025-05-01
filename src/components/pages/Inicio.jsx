@@ -54,8 +54,8 @@ const Inicio = () => {
                 <hr className="minecraft-hr w-100" />
                 {step === 1 && (
                   <div className="d-flex flex-column gap-2">
-                    <button className="minecraft-btn">Comprar Minecraft</button>
-                    <button className="minecraft-btn danger">Descargar SKLauncher</button>
+                    <button onClick={() => {window.open("https://minecraft.net/", "_blank");}} className="minecraft-btn">Comprar Minecraft</button>
+                    <button onClick={() => {window.open("/files/miarmacraft/SKLauncher.exe", "_blank");}} className="minecraft-btn danger">Descargar SKLauncher</button>
                   </div>
                 )}
                 {step === 2 && (

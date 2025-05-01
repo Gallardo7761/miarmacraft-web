@@ -88,8 +88,15 @@ const ModsContent = ({ reqConfig }) => {
     return (
         <CustomContainer>
             <ContentWrapper>
-                <button className="minecraft-btn mb-3" onClick={handleCreate}>Nuevo mod</button>
-
+                <div className="m-0 p-0 gap-2 mb-3 d-flex">
+                    <button className="minecraft-btn" onClick={handleCreate}>Nuevo mod</button>
+                    <button
+                        className='minecraft-btn'
+                        onClick={() => { window.open("/files/miarmacraft/MiarmaPack.zip", "_blank"); }}
+                    >
+                        Descargar modpack
+                    </button>
+                </div>
                 <ModListByDate
                     mods={data}
                     onUpdate={handleEditSubmit}
