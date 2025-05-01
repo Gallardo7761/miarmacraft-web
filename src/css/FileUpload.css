@@ -1,33 +1,63 @@
+/* === Estilo de tarjeta de subida estilo Minecraft === */
+
 .upload-card {
-  
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  cursor: pointer;
-  border: 2px dashed var(--primary-color) !important;
-  background-color: var(--bg-color) !important;
+  background-color: var(--background-color) !important;
   color: var(--text-color);
+  font-family: 'MCText Regular';
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  border: 3px dashed var(--btn-primary-border-color);
+  border-radius: 0;
+  text-align: center;
+
+  
+  transition: transform 0.1s, box-shadow 0.1s, border-color 0.1s;
 }
 
 .upload-card:hover {
-  border: 2px dashed var(--tertiary-color) !important;
-  background-color: var(--bg-hover-color) !important;
+  border-color: var(--btn-primary-inner-border-lt-color);
+  background-color: var(--secondary-color);
 }
 
 .upload-card.highlight {
-  border-color: var(--highlight-border) !important;
-  background-color: var(--bg-hover-color);
+  border-color: var(--btn-primary-inner-border-br-color);
+  background-color: var(--secondary-color);
+  box-shadow:
+    inset 6px 6px 0 var(--btn-primary-inner-border-lt-color),
+    inset -6px -6px 0 var(--btn-primary-inner-border-br-color),
+    6px 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.upload-card h2 {
+  font-family: 'MCTitles';
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.upload-card p {
+  font-size: 1.2rem;
 }
 
 .upload-card .file-list {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
   text-align: left;
   padding: 0;
   list-style: none;
+  font-family: 'MCText Regular';
+  font-size: 1.2rem;
 }
 
 .upload-card .file-list li {
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  margin-bottom: var(--spacing-xs);
   color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--hr-bottom-color);
+  padding-bottom: var(--spacing-xs);
+}
+
+.upload-card .btn-close {
+  filter: invert(1);
 }

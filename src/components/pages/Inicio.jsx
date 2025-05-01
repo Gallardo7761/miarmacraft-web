@@ -1,6 +1,7 @@
 import CustomContainer from "@/components/layout/CustomContainer";
 import { Col, Row, Modal } from "react-bootstrap";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Inicio = () => {
   const [modalShown, setModalShown] = useState(false);
@@ -58,7 +59,9 @@ const Inicio = () => {
                   </div>
                 )}
                 {step === 2 && (
-                  <button className="minecraft-btn">Descargar modpack</button>
+                  <Link to="mods" className="minecraft-btn">
+                    Descargar Mods
+                  </Link>
                 )}
                 {step === 3 && (
                   <button

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-const ContentWrapper = ({ children }) => {
+const ContentWrapper = ({ children, row = false  }) => {
     return (
-        <div className="container-xl">
+        <div className={`container-xl ${row ? 'row' : ''} mx-auto`}>
             {children}
         </div>
     );
@@ -10,6 +10,7 @@ const ContentWrapper = ({ children }) => {
 
 ContentWrapper.propTypes = {
     children: PropTypes.node.isRequired,
+    row: PropTypes.bool,
 }
 
 export default ContentWrapper;

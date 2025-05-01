@@ -1,8 +1,9 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import { Card, CloseButton } from "react-bootstrap";
+import { CloseButton } from "react-bootstrap";
 import "@/css/FileUpload.css";
+import PropTypes from "prop-types";
 
-const MAX_FILE_SIZE_MB = 10;
+const MAX_FILE_SIZE_MB = 100;
 
 const FileUpload = forwardRef(({ onFilesSelected }, ref) => {
   const fileInputRef = useRef();
@@ -10,12 +11,8 @@ const FileUpload = forwardRef(({ onFilesSelected }, ref) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
 
   useImperativeHandle(ref, () => ({
-    resetSelectedFiles: () => {
-      setSelectedFiles([]);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = null; // limpia input real
-      }
-    },
+    getSelectedFiles: () => selectedFiles,
+    resetSelectedFiles: () => setSelectedFiles([]),
   }));
 
   const handleFiles = (files) => {
@@ -59,23 +56,23 @@ const FileUpload = forwardRef(({ onFilesSelected }, ref) => {
   };
 
   return (
-    <Card
-      className={`upload-card shadow-sm mb-4 ${highlight ? "highlight" : ""}`}
+    <div
+      className={`upload-card mb-4 ${highlight ? "highlight" : ""}`}
       onClick={openFileDialog}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       role="button"
     >
-      <Card.Body className="text-center">
+      <div className="text-center">
         <h2 className="mb-3">📎 Subir archivo</h2>
         <p>
-          Arrastra o haz click para seleccionar archivos (Máx. 10MB)
+          Arrastra o haz click para seleccionar archivos (Máx. 100MB)
         </p>
         <input
           ref={fileInputRef}
           type="file"
-          accept=".pdf"
+          accept=".jar"
           multiple
           className="d-none"
           onChange={handleInputChange}
@@ -98,9 +95,15 @@ const FileUpload = forwardRef(({ onFilesSelected }, ref) => {
             ))}
           </ul>
         )}
-      </Card.Body>
-    </Card>
+      </div>
+    </div>
   );
 });
+
+FileUpload.displayName = "FileUpload";
+
+FileUpload.propTypes = {
+  onFilesSelected: PropTypes.func,
+};
 
 export default FileUpload;

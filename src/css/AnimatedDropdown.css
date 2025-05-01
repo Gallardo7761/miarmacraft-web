@@ -1,28 +1,54 @@
-.dropdown-menu .dropdown-divider {
-  border-top: 1px solid var(--divider-color);
-}
+/* === Dropdown estilo Minecraft === */
 
 .dropdown-menu {
-  background-color: var(--bg-color) !important;
+  background-color: var(--background-color) !important;
   color: var(--text-color) !important;
+  font-family: 'MCText Regular';
+  border: none !important;
+  padding: var(--spacing-sm);
+  box-shadow:
+    inset 6px 6px 0 var(--btn-tertiary-inner-shadow-color),
+    inset -6px -6px 0 #1d1d1d,
+    6px 6px 10px rgba(0, 0, 0, 0.5);
+  /* sombra exterior */
+  border-radius: 0 !important;
+  min-width: 200px;
 }
 
 .dropdown-menu.show {
-  background-color: var(--navbar-bg) !important;
-  box-shadow: 0 5px 10px var(--shadow-color);
+  display: block;
+}
+
+.dropdown-divider {
+  border: none;
+  border-top: 2px solid var(--hr-top-color);
+  border-bottom: 2px solid var(--hr-bottom-color);
 }
 
 .dropdown-item {
-  background-color: var(--navbar-bg) !important;
-  color: var(--navbar-dropdown-item-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'MCText Regular';
+  font-size: 1.4rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
   cursor: pointer;
+  transition: background-color 0.1s;
+  user-select: none;
+  display: block;
 }
 
 .dropdown-item:hover {
-  background-color: var(--navbar-bg) !important;
-  color: var(--secondary-color) !important;
+  background-color: var(--secondary-color) !important;
 }
 
-.disabled.text-muted {
-  color: var(--muted-color) !important;
+.dropdown-item:active {
+  background-color: var(--btn-primary-inner-hover-color) !important;
+}
+
+.disabled.text-muted,
+.dropdown-item.disabled {
+  color: var(--accent-color);
+  opacity: 0.5;
+  cursor: not-allowed;
 }

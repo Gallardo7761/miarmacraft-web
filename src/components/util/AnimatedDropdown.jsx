@@ -2,11 +2,12 @@ import { useState, useRef, useEffect, cloneElement } from 'react';
 import { Button } from 'react-bootstrap';
 import { AnimatePresence, motion as _motion } from 'framer-motion';
 import '@/css/AnimatedDropdown.css';
+import PropTypes from 'prop-types';
 
 const AnimatedDropdown = ({
   trigger,
   icon,
-  variant = "secondary",
+  variant = "",
   className = "",
   buttonStyle = "",
   show,
@@ -59,7 +60,7 @@ const AnimatedDropdown = ({
       </Button>
     );
 
-  const dropdownClasses = `dropdown-menu show shadow rounded-4 px-2 py-2 ${className}`;
+  const dropdownClasses = `dropdown-menu show px-2 py-2 ${className}`;
 
   return (
     <div
@@ -87,6 +88,18 @@ const AnimatedDropdown = ({
       </AnimatePresence>
     </div>
   );
+};
+AnimatedDropdown.propTypes = {
+  trigger: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  icon: PropTypes.node,
+  variant: PropTypes.string,
+  className: PropTypes.string,
+  buttonStyle: PropTypes.string,
+  show: PropTypes.bool,
+  onToggle: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };
 
 export default AnimatedDropdown;

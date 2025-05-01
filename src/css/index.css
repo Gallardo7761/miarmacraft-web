@@ -27,6 +27,9 @@
     --hr-top-color: #333334;
     --hr-bottom-color: #5a5b5c;
 
+    --added-color: #4f913c;
+    --removed-color: #c72a2a;
+
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -131,7 +134,7 @@ p {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
 }
 
-.minecraft-card:hover {
+.minecraft-card:hover:not(.not-animated) {
     /* Efecto "levantarse" al pasar el ratón */
     transform: translateY(-4px);
     box-shadow:
@@ -176,6 +179,34 @@ p {
     outline: none;
     background-color: var(--secondary-color);
 }
+
+.minecraft-select {
+    background-color: var(--primary-color);
+    border: 3px solid var(--btn-primary-border-color);
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+    height: 40px;
+    width: 100%;
+    appearance: none;
+    background-image: url("/icons/down_arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1rem;
+}
+
+.minecraft-select:focus {
+    outline: none;
+    background-color: var(--secondary-color);
+}
+
+.minecraft-select>option {
+    appearance: none;
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+}
+
 
 /* ===========================
      CHECKBOX
@@ -297,9 +328,8 @@ button[disabled].minecraft-btn {
 /* ===========================
    MODAL ESTILO MINECRAFT
    =========================== */
-/* Opcional: si quieres aislarlo, añade una clase extra al Modal via
-   <Modal contentClassName="minecraft-modal" …> */
-.modal-content {
+
+   .modal-content {
     background-color: var(--background-color) !important;
     border: none !important;
     border-radius: 0 !important;
@@ -312,7 +342,7 @@ button[disabled].minecraft-btn {
 }
 
 /* Header */
-.modal-header {
+.modal-content .modal-header {
     padding: var(--spacing-md) var(--spacing-lg) !important;
     background-color: var(--primary-color) !important;
     border-bottom: 2px solid var(--hr-top-color) !important;
