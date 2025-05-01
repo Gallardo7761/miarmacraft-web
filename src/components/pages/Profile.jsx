@@ -38,7 +38,7 @@ const ProfileContent = ({ reqConfig }) => {
     return (
         <CustomContainer>
             <ContentWrapper>
-                <div className="minecraft-card row">
+                <div className="minecraft-card not-animated row">
                     <h1 className="header col-12 mb-4">{data.user_name}</h1>
                     <ReactSkinview3d
                         className="col-4"
