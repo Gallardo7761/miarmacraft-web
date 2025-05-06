@@ -33,7 +33,9 @@ const ModListByDate = ({ mods, onUpdate, onDelete, onClearError }) => {
             {formatDate(date)}
           </h3>
           <ul className="list-unstyled m-0 p-0">
-            {modsByDate[date].map((mod) => (
+            {modsByDate[date]
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .map((mod) => (
               <Mod 
                 key={mod.mod_id} 
                 mod={mod} 
@@ -56,6 +58,9 @@ ModListByDate.propTypes = {
       created_at: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onClearError: PropTypes.func.isRequired
 };
 
 export default ModListByDate;
