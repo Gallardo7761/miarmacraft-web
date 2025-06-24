@@ -44,7 +44,7 @@ const Header = () => {
                             INICIO
                         </div>
                     </Link>
-                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.PLAYER_ROLE]}>
+                    <IfRole roles={[CONSTANTS.ADMIN_ROLE]}>
                         <Link to="mods" className='nav-link'>
                             <div className='align-items-center d-flex gap-2'>
                                 {Icons.AddGrid}

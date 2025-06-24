@@ -41,7 +41,7 @@ const Inicio = () => {
 
                   {step === 2 && (
                     <p>
-                      Una vez instales el juego, necesitarás descargar el paquete de mods que usamos en el servidor.
+                      Una vez instales el juego, necesitas descargar el resource pack del server (también lo puedes descargar al entrar). Recomendamos mods de rendimiento que podrás descargar en la web.
                     </p>
                   )}
 
@@ -61,9 +61,14 @@ const Inicio = () => {
                     </div>
                   )}
                   {step === 2 && (
-                    <Link to="mods" className="minecraft-btn">
-                      Descargar Mods
-                    </Link>
+                    <>
+                      <Link to="https://miarma.net/files/miarmacraft/mmc_pack.zip" className="minecraft-btn">
+                        Resourcepack
+                      </Link>
+                      <Link to="https://miarma.net/files/miarmacraft/mmc_performance.zip" className="minecraft-btn">
+                        Mods rendimiento
+                      </Link>
+                    </>
                   )}
                   {step === 3 && (
                     <button

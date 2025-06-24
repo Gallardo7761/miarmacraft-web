@@ -18,7 +18,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Inicio />} />
                 <Route path="/mods" element={
-                    <ProtectedRoute>
+                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE]}>
                         <Mods />
                     </ProtectedRoute>
                 } />
