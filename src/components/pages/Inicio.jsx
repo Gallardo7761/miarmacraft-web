@@ -7,8 +7,8 @@ import ContentWrapper from "../layout/ContentWrapper";
 const Inicio = () => {
   const [modalShown, setModalShown] = useState(false);
 
-  const copiarIP = () => {
-    navigator.clipboard.writeText('miarma.net');
+  const copiarIP = (mode) => {
+    navigator.clipboard.writeText(mode === 'V' ? 'miarma.net' : 'miarma.net:25566');
     setModalShown(true);
   };
 
@@ -40,9 +40,14 @@ const Inicio = () => {
                   )}
 
                   {step === 2 && (
+                    <>
                     <p>
-                      Una vez instales el juego necesitas descargar el modpack (paquete de mods) necesario para jugar. En caso de que necesitases algún  mod específico, puedes mirarlo en la <Link to={"/mods"}>lista de mods</Link>.
+                      Para jugar al server Vanilla++ deberás entrar en la versión 1.21.8 vanilla sin más.
                     </p>
+                    <p>
+                      Sin embargo, si deseas jugar al servidor con mods necesitas descargar el modpack (paquete de mods) que tenemos en el servidor. En caso de que necesitases algún  mod específico, puedes mirarlo en la <Link to={"/mods"}>lista de mods</Link>.
+                    </p>
+                    </>
                   )}
 
                   {step === 3 && (
@@ -68,12 +73,20 @@ const Inicio = () => {
                     </>
                   )}
                   {step === 3 && (
+                    <>
                     <button
-                      onClick={() => { copiarIP(); setModalShown(true); }}
+                      onClick={() => { copiarIP('V'); setModalShown(true); }}
                       className="minecraft-btn"
                     >
-                      Copiar IP
+                      IP Vanilla++
                     </button>
+                    <button
+                      onClick={() => { copiarIP('F'); setModalShown(true); }}
+                      className="minecraft-btn"
+                    >
+                      IP Forge
+                    </button>
+                    </>
                   )}
                 </div>
 
