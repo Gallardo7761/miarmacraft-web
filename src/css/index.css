@@ -1,0 +1,511 @@
+/* ===========================
+   VARIABLES GLOBALES
+   =========================== */
+:root {
+    --primary-color: #313233;
+    --secondary-color: #48494a;
+    --accent-color: #d0d1d4;
+    --background-color: #48494a;
+    --text-color: #ffffff;
+    --text-dark-color: #000000;
+
+    --btn-primary-inner-color: #3c8527;
+    --btn-primary-inner-hover-color: #2a641c;
+    --btn-primary-inner-shadow-color: #1d4d13;
+    --btn-primary-border-color: #1e1e1f;
+    --btn-primary-inner-border-lt-color: #4f913cbf;
+    --btn-primary-inner-border-br-color: #639d52;
+
+    --btn-danger-inner-color: #c72a2a;
+    --btn-danger-inner-hover-color: #a61e1e;
+    --btn-danger-inner-shadow-color: #7a1c1c;
+    --btn-danger-border-color: #1e1e1f;
+    --btn-danger-inner-border-lt-color: #c72a2abf;
+    --btn-danger-inner-border-br-color: #c72a2a;
+
+    --btn-tertiary-inner-shadow-color: #58585a;
+    --hr-top-color: #333334;
+    --hr-bottom-color: #5a5b5c;
+
+    --added-color: #4f913c;
+    --removed-color: #c72a2a;
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+}
+
+/* ===========================
+     FUENTES
+     =========================== */
+@font-face {
+    font-family: 'MCTitles';
+    src: url('/fonts/mc-titles.ttf');
+}
+
+@font-face {
+    font-family: 'MCText Regular';
+    src: url('/fonts/mc-text-regular.otf');
+}
+
+@font-face {
+    font-family: 'MCText Bold';
+    src: url('/fonts/mc-text-bold.otf');
+}
+
+@font-face {
+    font-family: 'MCText Italic';
+    src: url('/fonts/mc-text-italic.otf');
+}
+
+@font-face {
+    font-family: 'MCText Bold Italic';
+    src: url('/fonts/mc-text-bold-italic.otf');
+}
+
+/* ===========================
+     RESET BÁSICO
+     =========================== */
+body {
+    font-family: 'MCText Regular';
+    background-image: url("/images/bg_dirt.webp");
+    color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'MCTitles';
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5em;
+}
+
+p {
+    font-family: 'MCText Regular';
+    margin-bottom: 1em;
+}
+
+/* ===========================
+     HR (Separador)
+     =========================== */
+.minecraft-hr {
+    border: none;
+    border-top: 2px solid var(--hr-top-color);
+    border-bottom: 2px solid var(--hr-bottom-color);
+    margin: var(--spacing-md) 0;
+}
+
+/* ===========================
+     CARD
+     =========================== */
+
+.minecraft-card {
+    background-color: var(--background-color);
+    padding: var(--spacing-md);
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+    /* Biseles brutotes */
+    box-shadow:
+        inset 6px 6px 0 var(--btn-tertiary-inner-shadow-color),
+        /* Bisel claro arriba izq */
+        inset -6px -6px 0 #1d1d1d,
+        /* Bisel oscuro abajo dcha */
+        6px 6px 10px rgba(0, 0, 0, 0.5);
+    /* Sombra exterior gorda */
+
+    border-radius: 0;
+    /* Estilo cuadrado como un bloque */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.minecraft-card header {
+    font-family: 'MCTitles';
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.minecraft-card:hover:not(.not-animated) {
+    /* Efecto "levantarse" al pasar el ratón */
+    transform: translateY(-4px);
+    box-shadow:
+        inset 6px 6px 0 var(--btn-tertiary-inner-shadow-color),
+        inset -6px -6px 0 #1d1d1d,
+        10px 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ===========================
+     BUILDING
+     =========================== */
+
+/* Construcción: imagen de mina y pico */
+.construction-img {
+    box-shadow:
+        inset 4px 4px 0 var(--btn-tertiary-inner-shadow-color),
+        inset -4px -4px 0 #1d1d1d !important;
+}
+
+/* Ajustes en la card para que no quede demasiado apretada */
+.minecraft-card.py-5 {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+
+/* ===========================
+     INPUT
+     =========================== */
+.minecraft-input {
+    background-color: var(--primary-color);
+    border: 3px solid var(--btn-primary-border-color);
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+    height: 40px;
+    padding: var(--spacing-sm);
+    width: 100%;
+}
+
+.minecraft-input:focus {
+    outline: none;
+    background-color: var(--secondary-color);
+}
+
+.minecraft-select {
+    background-color: var(--primary-color);
+    border: 3px solid var(--btn-primary-border-color);
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+    height: 40px;
+    width: 100%;
+    appearance: none;
+    background-image: url("/icons/down_arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1rem;
+}
+
+.minecraft-select:focus {
+    outline: none;
+    background-color: var(--secondary-color);
+}
+
+.minecraft-select>option {
+    appearance: none;
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+}
+
+
+/* ===========================
+     CHECKBOX
+     =========================== */
+
+.minecraft-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: var(--spacing-sm);
+    user-select: none;
+    font-family: 'MCText Regular';
+}
+
+.minecraft-checkbox {
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    border: 3px solid var(--btn-primary-border-color);
+    box-shadow:
+        inset 4px 4px var(--btn-tertiary-inner-shadow-color),
+        inset -4px -4px #1d1d1d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--accent-color);
+    overflow: hidden;
+}
+
+.pixel-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    pointer-events: none;
+    color: white;
+}
+
+.pixel-icon.big {
+    width: 40px;
+    height: 40px;
+}
+
+.minecraft-checkbox.checked {
+    background-color: var(--btn-primary-inner-color);
+    box-shadow:
+        inset 4px 4px var(--btn-primary-inner-border-lt-color),
+        inset -4px -4px var(--btn-primary-inner-border-br-color);
+    border-color: var(--btn-primary-border-color);
+}
+
+.minecraft-checkbox-label {
+    color: var(--text-color);
+}
+
+
+
+/* ===========================
+     BOTÓN (General)
+     =========================== */
+.minecraft-btn {
+    background-color: var(--btn-primary-inner-color);
+    border: 3px solid var(--btn-primary-border-color);
+    box-shadow:
+        inset 0 -6px var(--btn-primary-inner-shadow-color),
+        inset 3px 3px var(--btn-primary-inner-border-lt-color),
+        inset -3px -9px var(--btn-primary-inner-border-br-color);
+    color: var(--text-color);
+    font-family: 'MCTitles';
+    font-size: 1.2em;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.minecraft-btn.danger {
+    background-color: var(--btn-danger-inner-color);
+    border: 3px solid var(--btn-danger-border-color);
+    box-shadow:
+        inset 0 -6px var(--btn-danger-inner-shadow-color),
+        inset 3px 3px var(--btn-danger-inner-border-lt-color),
+        inset -3px -9px var(--btn-danger-inner-border-br-color);
+    color: var(--text-color);
+    font-family: 'MCTitles';
+    font-size: 1.2em;
+    padding: 8px 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+button[disabled].minecraft-btn {
+    background-color: var(--btn-primary-inner-color);
+    border: 3px solid var(--btn-primary-border-color);
+    box-shadow:
+        inset 0 -6px var(--btn-primary-inner-shadow-color),
+        inset 3px 3px var(--btn-primary-inner-border-lt-color),
+        inset -3px -9px var(--btn-primary-inner-border-br-color);
+    color: var(--bs-dark);
+    font-family: 'MCTitles';
+    font-size: 1.2em;
+    padding: 8px 16px;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.minecraft-btn:hover {
+    background-color: var(--btn-primary-inner-hover-color);
+}
+
+.minecraft-btn.danger:hover {
+    background-color: var(--btn-danger-inner-hover-color);
+}
+
+/* ===========================
+   MODAL ESTILO MINECRAFT
+   =========================== */
+
+   .modal-content {
+    background-color: var(--background-color) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow:
+        inset 6px 6px 0 var(--btn-tertiary-inner-shadow-color),
+        inset -6px -6px 0 #1d1d1d,
+        6px 6px 10px rgba(0, 0, 0, 0.5) !important;
+    font-family: 'MCText Regular';
+    color: var(--text-color);
+}
+
+/* Header */
+.modal-content .modal-header {
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    background-color: var(--primary-color) !important;
+    border-bottom: 2px solid var(--hr-top-color) !important;
+    border-radius: 0 !important;
+    box-shadow:
+        inset 0 -2px 0 var(--hr-bottom-color) !important;
+}
+
+/* Título */
+.modal-title {
+    font-family: 'MCTitles' !important;
+    font-size: 1.6rem !important;
+    color: var(--text-color) !important;
+}
+
+/* Botón de cerrar */
+.btn-close {
+    background: none !important;
+    border: none !important;
+    font-family: 'MCTitles' !important;
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+    filter: invert(1);
+}
+
+.btn-close:hover {
+    color: var(--btn-primary-inner-hover-color) !important;
+}
+
+/* Body */
+.modal-body {
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    font-family: 'MCText Regular' !important;
+    font-size: 1.4rem !important;
+    text-align: center !important;
+}
+
+/* Si usas <Modal.Footer> */
+.modal-footer {
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    border-top: 2px solid var(--hr-top-color) !important;
+    box-shadow:
+        inset 0 2px 0 var(--hr-bottom-color) !important;
+    justify-content: center;
+    background-color: var(--primary-color) !important;
+}
+
+/* Sobrescribir botones de footer (si los hubiera) */
+.modal-footer .btn {
+    /* asume que ya tienes .minecraft-btn */
+    all: unset;
+}
+
+/* ===========================
+   FOOTER ESTILO MINECRAFT
+   =========================== */
+.minecraft-footer {
+    background-color: var(--primary-color);
+    padding: var(--spacing-lg) var(--spacing-md);
+    color: var(--text-color);
+    font-family: 'MCText Regular';
+    text-align: center;
+
+    /* Igual que el nav pero en la parte superior */
+    border-top: 4px solid var(--secondary-color);
+    box-shadow: inset 0 6px var(--btn-tertiary-inner-shadow-color);
+
+    border-radius: 0;
+}
+
+
+.minecraft-footer .footer-content p {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.minecraft-footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   HEADER VISUAL
+   =========================== */
+.header {
+    background-color: var(--primary-color);
+    border-bottom: 4px solid var(--secondary-color);
+    box-shadow: inset 0 -6px var(--btn-tertiary-inner-shadow-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.header-logo {
+    font-size: 3.0rem;
+    font-family: 'MCTitles';
+    color: var(--accent-color);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+/* Botón de hamburguesa */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--accent-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Navegación Desktop */
+.header-nav a.nav-link {
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    position: relative;
+}
+
+.header-nav a.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.header-nav a.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    bottom: -4px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.header-nav a.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Menú Mobile */
+.header-nav-mobile {
+    background-color: var(--primary-color);
+    border-top: 3px solid var(--secondary-color);
+    padding: var(--spacing-md) 0;
+    width: 100%;
+    text-align: center;
+}
+
+.header-nav-mobile a.nav-link {
+    font-family: 'MCText Regular';
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    position: relative;
+}
+
+/* Botones dentro del menú móvil */
+.header-nav-mobile .minecraft-form-btn {
+    width: 80%;
+    margin: var(--spacing-sm) auto;
+}
