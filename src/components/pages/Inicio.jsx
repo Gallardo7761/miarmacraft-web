@@ -7,8 +7,8 @@ import ContentWrapper from "../layout/ContentWrapper";
 const Inicio = () => {
   const [modalShown, setModalShown] = useState(false);
 
-  const copiarIP = (mode) => {
-    navigator.clipboard.writeText(mode === 'V' ? 'miarma.net' : 'miarma.net:25566');
+  const copiarIP = () => {
+    navigator.clipboard.writeText('mc.miarma.net');
     setModalShown(true);
   };
 
@@ -30,28 +30,24 @@ const Inicio = () => {
                 <div className="card-body">
                   {step === 1 && (
                     <>
-                      <p>Necesitas tener el juego para entrar en el servidor (gracias capitán obvio) así que tienes dos opciones:
-                      </p>
+                      <p>Necesitas tener el juego para entrar en el servidor así que tienes dos opciones:</p>
                       <ul>
+                        <li className="text-start">Descargar el launcher PrismLauncher (recomendado, launcher <a href="https://en.wikipedia.org/wiki/Open-source_software" target="_blank" rel="noopener noreferrer">OSS</a>).</li>
                         <li className="text-start">Comprarlo en la página oficial.</li>
-                        <li className="text-start">Descargar el launcher SKLauncher (no recomendado).</li>
                       </ul>
+
                     </>
                   )}
 
                   {step === 2 && (
-                    <>
                     <p>
-                      Para jugar al server Vanilla++ deberás entrar en la versión 1.21.8 vanilla sin más.
+                      El servidor se encuentra en la version <b>1.20.1</b>, así que tendrás que seleccionar esa versión en el launcher. También deberás descargar el pack de mods desde.
                     </p>
-                    <p>
-                      Sin embargo, si deseas jugar al servidor con mods necesitas descargar el modpack (paquete de mods) que tenemos en el servidor. En caso de que necesitases algún  mod específico, puedes mirarlo en la <Link to={"/mods"}>lista de mods</Link>.
-                    </p>
-                    </>
                   )}
 
                   {step === 3 && (
-                    <p>Por último solamente te queda copiar la dirección del servidor e introducirla en el juego para conectarte y jugar :D
+                    <p>
+                      Por último solamente te queda copiar la dirección del servidor e introducirla en el juego para conectarte y jugar :D
                     </p>
                   )}
                 </div>
@@ -61,8 +57,8 @@ const Inicio = () => {
                   <hr className="minecraft-hr w-100" />
                   {step === 1 && (
                     <div className="d-flex flex-column gap-2">
-                      <button onClick={() => { window.open("https://minecraft.net/", "_blank"); }} className="minecraft-btn">Comprar Minecraft</button>
-                      <button onClick={() => { window.open("/files/miarmacraft/SKLauncher.exe", "_blank"); }} className="minecraft-btn danger">Descargar SKLauncher</button>
+                      <button onClick={() => { window.open("https://github.com/PrismLauncher/PrismLauncher/releases/latest", "_blank"); }} className="minecraft-btn">Descargar Prism Launcher</button>
+                      <button onClick={() => { window.open("https://minecraft.net/", "_blank"); }} className="minecraft-btn danger">Comprar Minecraft</button>
                     </div>
                   )}
                   {step === 2 && (
@@ -73,20 +69,12 @@ const Inicio = () => {
                     </>
                   )}
                   {step === 3 && (
-                    <>
                     <button
-                      onClick={() => { copiarIP('V'); setModalShown(true); }}
+                      onClick={() => { copiarIP(); setModalShown(true); }}
                       className="minecraft-btn"
                     >
-                      IP Vanilla++
+                      COPIAR IP
                     </button>
-                    <button
-                      onClick={() => { copiarIP('F'); setModalShown(true); }}
-                      className="minecraft-btn"
-                    >
-                      IP Forge
-                    </button>
-                    </>
                   )}
                 </div>
 

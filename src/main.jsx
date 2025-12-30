@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ConfigProvider>
       <AuthProvider>
-        <BrowserRouter basename='/miarmacraft/'>
+        <BrowserRouter>
           <App />
         </BrowserRouter>
       </AuthProvider>

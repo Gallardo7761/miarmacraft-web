@@ -92,7 +92,7 @@ const ModsContent = ({ reqConfig }) => {
                     <button className="minecraft-btn" onClick={handleCreate}>Nuevo mod</button>
                     <button
                         className='minecraft-btn'
-                        onClick={() => { window.open("/files/miarmacraft/MiarmaPack.zip", "_blank"); }}
+                        onClick={() => { window.open("https://miarma.net/files/miarmacraft/MiarmaPack.zip", "_blank"); }}
                     >
                         Descargar modpack
                     </button>

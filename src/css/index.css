@@ -68,6 +68,14 @@
 /* ===========================
      RESET BÁSICO
      =========================== */
+* {
+    cursor: url('/images/diamond_pickaxe.cur'), auto !important;
+}
+
+a, button, a.nav-link>div, .minecraft-btn>*, .navbar-brand>img {
+    cursor: url('/images/diamond_sword.cur'), pointer !important;
+}
+     
 body {
     font-family: 'MCText Regular';
     background-image: url("/images/bg_dirt.webp");
