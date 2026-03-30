@@ -1,0 +1,26 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /v2/minecraft
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/miarma_v2
+    username: admin
+    password: ${DB_PASS}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+
+core:
+  url: http://localhost:8080/v2/core
+
+minecraft:
+  user: SYSTEM
+  password: ${MINECRAFT_PASS}
+
+discord:
+  url: ${DISCORD_URL}
