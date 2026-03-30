@@ -5,6 +5,7 @@ import net.miarma.backend.miarmacraft.event.ModActionEvent;
 import net.miarma.backend.miarmacraft.mapper.ModMapper;
 import net.miarma.backend.miarmacraft.model.Mod;
 import net.miarma.backend.miarmacraft.service.ModService;
+import net.miarma.backlib.io.FileService;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
