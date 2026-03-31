@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { parseJwt } from "@/util/tokenUtils.js";
-import NotificationModal from "@/components/modals/NotificationModal.jsx";
+import NotificationModal from "@/components/NotificationModal.jsx";
 import axios from "axios";
 import { useAuth } from "./useAuth.js";
 import { useConfig } from "./useConfig.js";
@@ -50,8 +50,7 @@ const useSessionRenewal = () => {
 
     try {
       const response = await axios.get(
-        `${config.apiConfig.baseUrl}${config.apiConfig.endpoints.auth.refreshToken}`,
-        null,
+        `${config.apiConfig.coreUrl}${config.apiConfig.endpoints.auth.refreshToken}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -59,7 +58,7 @@ const useSessionRenewal = () => {
         }
       );
 
-      const newToken = response.data.data.token;
+      const newToken = response.data.token;
       localStorage.setItem("token", newToken);
       setShowModal(false);
       setAlreadyWarned(false);

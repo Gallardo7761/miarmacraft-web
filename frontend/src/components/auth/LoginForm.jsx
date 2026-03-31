@@ -5,16 +5,16 @@ import { Alert } from "react-bootstrap";
 import CustomCheckbox from "./CustomCheckbox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
+import { CONSTANTS } from "@/constants";
 
 const LoginForm = () => {
     const { login, error } = useAuth();
     const navigate = useNavigate();
 
     const [formState, setFormState] = useState({
-        emailOrUserName: "",
+        username: "",
         password: "",
-        keepLoggedIn: false
+        serviceId: CONSTANTS.SERVICE_ID
     });
 
     const handleChange = (e) => {
@@ -24,22 +24,8 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.emailOrUserName);
-
-        const loginBody = {
-            password: formState.password,
-            keepLoggedIn: Boolean(formState.keepLoggedIn),
-        };
-
-        if (isEmail) {
-            loginBody.email = formState.emailOrUserName;
-        } else {
-            loginBody.userName = formState.emailOrUserName;
-        }
-
         try {
-            await login(loginBody);
+            await login(formState);
             navigate("/");
         } catch (err) {
             console.error("Error de login:", err.message);
@@ -61,8 +47,8 @@ const LoginForm = () => {
                         <label>Usuario o email</label>
                         <input
                             type="text"
-                            name="emailOrUserName"
-                            value={formState.emailOrUserName}
+                            name="username"
+                            value={formState.username}
                             onChange={handleChange}
                             className="minecraft-input mb-3" />
 
@@ -93,10 +79,5 @@ const LoginForm = () => {
         </CustomContainer>
     );
 }
-
-LoginForm.propTypes = {
-    emailOrUsername: PropTypes.string,
-    password: PropTypes.string,
-};
 
 export default LoginForm;

@@ -18,12 +18,12 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Inicio />} />
                 <Route path="/mods" element={
-                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE]}>
+                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
                         <Mods />
                     </ProtectedRoute>
                 } />
                 <Route path="/jugadores" element={
-                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE]}>
+                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
                         <Jugadores />
                     </ProtectedRoute>
                 } />

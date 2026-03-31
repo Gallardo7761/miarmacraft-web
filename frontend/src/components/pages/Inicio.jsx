@@ -3,6 +3,8 @@ import { Col, Row, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ContentWrapper from "../layout/ContentWrapper";
+import IfAuthenticated from "../auth/IfAuthenticated";
+import IfNotAuthenticated from "../auth/IfNotAuthenticated";
 
 const Inicio = () => {
   const [modalShown, setModalShown] = useState(false);
@@ -22,7 +24,6 @@ const Inicio = () => {
             <Col key={step} sm={12} md={4} className="d-flex">
               <div className="minecraft-card flex-fill d-flex flex-column">
 
-                {/* —— Contenido “arriba” ————————————————————— */}
                 <h1 className="header text-center">
                   Paso {step}
                 </h1>
@@ -52,7 +53,6 @@ const Inicio = () => {
                   )}
                 </div>
 
-                {/* —— Footer con el hr + botones ————————————————— */}
                 <div className="card-footer mt-auto d-flex flex-column align-items-center gap-2">
                   <hr className="minecraft-hr w-100" />
                   {step === 1 && (
@@ -63,9 +63,16 @@ const Inicio = () => {
                   )}
                   {step === 2 && (
                     <>
-                      <Link to="https://miarma.net/files/miarmacraft/MiarmaPack.zip" className="minecraft-btn">
-                        Descargar Modpack
-                      </Link>
+                      <IfAuthenticated>
+                        <Link to="https://miarma.net/files/miarmacraft/MiarmaPack.zip" className="minecraft-btn">
+                          Descargar Modpack
+                        </Link>
+                      </IfAuthenticated>
+                      <IfNotAuthenticated>
+                        <div className="minecraft-btn danger">
+                          Inicia sesion primero
+                        </div>
+                      </IfNotAuthenticated>
                     </>
                   )}
                   {step === 3 && (

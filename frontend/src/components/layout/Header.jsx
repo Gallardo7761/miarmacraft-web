@@ -44,7 +44,7 @@ const Header = () => {
                             INICIO
                         </div>
                     </Link>
-                    <IfRole roles={[CONSTANTS.ADMIN_ROLE]}>
+                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
                         <Link to="mods" className='nav-link'>
                             <div className='align-items-center d-flex gap-2'>
                                 {Icons.AddGrid}
@@ -52,7 +52,7 @@ const Header = () => {
                             </div>
                         </Link>
                     </IfRole>
-                    <IfRole roles={[CONSTANTS.ADMIN_ROLE]}>
+                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
                         <Link to="jugadores" className='nav-link'>
                             <div className='align-items-center d-flex gap-2'>
                                 {Icons.Users}
@@ -103,7 +103,7 @@ const Header = () => {
                             </div>
                         </Link>
                     </IfRole>
-                    <IfRole roles={[CONSTANTS.ADMIN_ROLE]}>
+                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
                         <Link to="jugadores" className='nav-link mt-4' onClick={closeMenu}>
                             <div className='align-items-center d-flex gap-2'>
                                 {Icons.Users}

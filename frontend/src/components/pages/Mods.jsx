@@ -17,11 +17,8 @@ const Mods = () => {
     if (configLoading) return <LoadingIcon />;
 
     const reqConfig = {
-        baseUrl: `${config.apiConfig.baseRawUrl}${config.apiConfig.endpoints.mods.all}`,
-        params: {
-            _sort: 'created_at',
-            _order: 'desc',
-        },
+        baseUrl: `${config.apiConfig.baseUrl}${config.apiConfig.endpoints.mods.all}`,
+        params: {},
     };
 
     return (
@@ -40,7 +37,7 @@ const ModsContent = ({ reqConfig }) => {
     const fileRef = useRef();
 
     const handleCreate = () => {
-        setTempMod({ mod_id: null, name: '', url: '', status: 1 });
+        setTempMod({ modId: null, name: '', url: '', status: 1 });
         setShowModModal(true);
     };
 
@@ -157,10 +154,7 @@ const ModsContent = ({ reqConfig }) => {
 };
 
 ModsContent.propTypes = {
-    reqConfig: PropTypes.shape({
-        baseUrl: PropTypes.string.isRequired,
-        params: PropTypes.object.isRequired,
-    }).isRequired,
+    reqConfig: PropTypes.object
 };
 
 export default Mods;

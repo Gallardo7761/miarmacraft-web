@@ -1,30 +1,21 @@
 {
     "apiConfig": {
-        "baseUrl": "https://api.miarma.net/mmc/v1",
-        "baseRawUrl": "https://api.miarma.net/mmc/raw/v1",
-        "coreUrl": "https://api.miarma.net/v1",
-        "coreRawUrl": "https://api.miarma.net/raw/v1",
-        "authUrl": "https://api.miarma.net/auth/v1",
+        "baseUrl": "https://api.miarma.net/v2/minecraft",
+        "coreUrl": "https://api.miarma.net/v2/core",
         "endpoints": {
             "auth": {
-                "login": "/login",
-                "validateToken": "/validate-token",
-                "refreshToken": "/refresh-token",
-                "changePassword": "/change-password",
-                "loginValidate": "/login/validate"
+                "login": "/auth/login",
+                "refreshToken": "/auth/refresh",
+                "changePassword": "/auth/change-password",
+                "validateToken": "/auth/validate"
             },
             "mods": {
                 "all": "/mods",
-                "byId": "/mods/:mod_id",
-                "modStatus": "/mods/:mod_id/status"
+                "byId": "/mods/:modId"
             },
             "players": {
                 "all": "/players",
-                "byId": "/players/:player_id",
-                "playerStatus": "/players/:player_id/status",
-                "playerRole": "/players/:player_id/role",
-                "playerExists": "/players/:player_id/exists",
-                "playerAvatar": "/players/:player_id/avatar",
+                "byId": "/players/:playerId",
                 "playerInfo": "/players/me"
             }
         }

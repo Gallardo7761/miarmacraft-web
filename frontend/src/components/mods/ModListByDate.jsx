@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const groupModsByDate = (mods) => {
   const map = {};
   mods.forEach((mod) => {
-    const dateObj = new Date(mod.created_at);
+    const dateObj = new Date(mod.createdAt);
     const yyyy = dateObj.getFullYear();
     const mm = String(dateObj.getMonth() + 1).padStart(2, "0");
     const dd = String(dateObj.getDate()).padStart(2, "0");
@@ -34,10 +34,10 @@ const ModListByDate = ({ mods, onUpdate, onDelete, onClearError }) => {
           </h3>
           <ul className="list-unstyled m-0 p-0">
             {modsByDate[date]
-              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
               .map((mod) => (
               <Mod 
-                key={mod.mod_id} 
+                key={mod.modId} 
                 mod={mod} 
                 onUpdate={onUpdate}
                 onDelete={onDelete}
@@ -54,8 +54,8 @@ const ModListByDate = ({ mods, onUpdate, onDelete, onClearError }) => {
 ModListByDate.propTypes = {
   mods: PropTypes.arrayOf(
     PropTypes.shape({
-      mod_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      created_at: PropTypes.string.isRequired,
+      modId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      createdAt: PropTypes.string.isRequired,
     })
   ).isRequired,
   onUpdate: PropTypes.func.isRequired,

@@ -21,12 +21,12 @@ const Mod = ({ mod, isNew, fileRef, onCreate, onUpdate, onDelete, onSelectFiles,
     setModData((prev) => ({ ...prev, [K]: V }))
   }
 
-  const handleDelete = () => typeof onDelete === "function" && onDelete(mod.mod_id);
+  const handleDelete = () => typeof onDelete === "function" && onDelete(mod.modId);
 
   const handleSave = () => {
     const data = { ...mod, ...modData };
     if (createMode && onCreate) onCreate(data);
-    else if (onUpdate) onUpdate(data, mod.mod_id);
+    else if (onUpdate) onUpdate(data, mod.modId);
   }
 
   const handleEdit = () => {
@@ -51,7 +51,6 @@ const Mod = ({ mod, isNew, fileRef, onCreate, onUpdate, onDelete, onSelectFiles,
           </select>
         </div>
 
-        {/* Solo se muestra cuando editas un mod existente */}
         {!createMode && (
           <input
             className="minecraft-input col-12"
@@ -74,7 +73,6 @@ const Mod = ({ mod, isNew, fileRef, onCreate, onUpdate, onDelete, onSelectFiles,
     );
   }
 
-  // Modo visual normal
   return (
     <li
       className="d-flex justify-content-between align-items-center py-2"
@@ -95,7 +93,7 @@ const Mod = ({ mod, isNew, fileRef, onCreate, onUpdate, onDelete, onSelectFiles,
             {Icons.Download}
           </a>
         )}
-        <IfRole roles={[CONSTANTS.ADMIN_ROLE]}>
+        <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
           <AnimatedDropdown
             trigger={
               <button className="minecraft-btn flex-shrink-0">
