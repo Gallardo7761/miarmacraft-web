@@ -84,5 +84,4 @@ public class PlayerService {
             throw new RuntimeException("No se pudo actualizar el espectador");
         }
     }
-
 }

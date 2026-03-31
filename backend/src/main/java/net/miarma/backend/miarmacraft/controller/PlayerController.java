@@ -2,9 +2,11 @@ package net.miarma.backend.miarmacraft.controller;
 
 import net.miarma.backend.miarmacraft.dto.PlayerDto;
 import net.miarma.backend.miarmacraft.dto.StatusDto;
+import net.miarma.backend.miarmacraft.security.MinecraftPrincipal;
 import net.miarma.backend.miarmacraft.service.PlayerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +33,17 @@ public class PlayerController {
     public ResponseEntity<PlayerDto> getById(@PathVariable("userId") UUID userId) {
         PlayerDto viewer = playerService.getById(userId);
         return ResponseEntity.ok(viewer);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<PlayerDto> getMe(Authentication authentication) {
+        if (!(authentication.getPrincipal() instanceof MinecraftPrincipal principal)) {
+            throw new IllegalStateException("Tipo de autenticación inválida");
+        }
+
+        return ResponseEntity.ok(
+            playerService.getById(principal.getUserId())
+        );
     }
 
     @PutMapping("/{userId}")
