@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import '../../css/PasswordInput.css';
 import PropTypes from 'prop-types';
-import Icons from '../../icons.jsx';
+import Icons from '@/icons.jsx';
 
 const PasswordInput = ({ value, onChange, name = "password", className }) => {
   const [show, setShow] = useState(false);

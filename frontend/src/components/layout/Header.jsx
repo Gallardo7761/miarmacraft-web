@@ -11,7 +11,7 @@ import Icons from '@/icons.jsx';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
-    const { user, logout } = useAuth();
+    const { identity, logout } = useAuth();
 
     const toggleMenu = () => setOpen(!open);
     const closeMenu = () => setOpen(false);
@@ -61,7 +61,7 @@ const Header = () => {
                         </Link>
                     </IfRole>
                     <IfAuthenticated>
-                        <ProfilePicture userName={user?.user_name} part="helm" />
+                        <ProfilePicture userName={identity?.account?.username} part="helm" />
                     </IfAuthenticated>
                     <IfNotAuthenticated>
                         <ProfilePicture userName="Steve" part="avatar" />

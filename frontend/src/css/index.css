@@ -72,10 +72,14 @@
     cursor: url('/images/diamond_pickaxe.cur'), auto !important;
 }
 
-a, button, a.nav-link>div, .minecraft-btn>*, .navbar-brand>img {
+a,
+button,
+a.nav-link>div,
+.minecraft-btn>*,
+.navbar-brand>img {
     cursor: url('/images/diamond_sword.cur'), pointer !important;
 }
-     
+
 body {
     font-family: 'MCText Regular';
     background-image: url("/images/bg_dirt.webp");
@@ -111,7 +115,7 @@ p {
 
 /* ===========================
      CARD
-     =========================== */
+    =========================== */
 
 .minecraft-card {
     background-color: var(--background-color);
@@ -328,65 +332,67 @@ button[disabled].minecraft-btn {
    MODAL ESTILO MINECRAFT
    =========================== */
 
-   .modal-content {
+.minecraft-modal-wrapper .modal-content {
     background-color: var(--background-color) !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow:
-        inset 6px 6px 0 var(--btn-tertiary-inner-shadow-color),
-        inset -6px -6px 0 #1d1d1d,
-        6px 6px 10px rgba(0, 0, 0, 0.5) !important;
-    font-family: 'MCText Regular';
-    color: var(--text-color);
+        inset 4px 4px 0 var(--btn-tertiary-inner-shadow-color),
+        inset -4px -4px 0 #1d1d1d,
+        8px 8px 0 rgba(0, 0, 0, 0.4) !important;
+    padding: 4px;
 }
 
-.modal-content .modal-header {
-    padding: var(--spacing-md) var(--spacing-lg) !important;
-    background-color: var(--primary-color) !important;
-    border-bottom: 2px solid var(--hr-top-color) !important;
+.minecraft-modal-header {
+    background-color: #212121 !important;
+    border-bottom: 4px solid var(--btn-tertiary-inner-shadow-color) !important;
     border-radius: 0 !important;
-    box-shadow:
-        inset 0 -2px 0 var(--hr-bottom-color) !important;
+    padding: 12px 20px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.modal-title {
+.minecraft-modal-title {
     font-family: 'MCTitles' !important;
-    font-size: 1.6rem !important;
-    color: var(--text-color) !important;
-}
-
-.btn-close {
-    background: none !important;
-    border: none !important;
-    font-family: 'MCTitles' !important;
-    font-size: 1.2rem !important;
-    line-height: 1 !important;
-    opacity: 1 !important;
-    filter: invert(1);
-}
-
-.btn-close:hover {
-    color: var(--btn-primary-inner-hover-color) !important;
-}
-
-.modal-body {
-    padding: var(--spacing-md) var(--spacing-lg) !important;
-    font-family: 'MCText Regular' !important;
     font-size: 1.4rem !important;
-    text-align: center !important;
+    text-shadow: 2px 2px 0 #000;
+    margin: 0 !important;
 }
 
-.modal-footer {
-    padding: var(--spacing-md) var(--spacing-lg) !important;
-    border-top: 2px solid var(--hr-top-color) !important;
-    box-shadow:
-        inset 0 2px 0 var(--hr-bottom-color) !important;
-    justify-content: center;
-    background-color: var(--primary-color) !important;
+.minecraft-close-btn {
+    background: none;
+    border: none;
+    color: #aaaaaa;
+    font-family: 'MCTitles';
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: color 0.2s;
 }
 
-.modal-footer .btn {
-    all: unset;
+.minecraft-close-btn:hover {
+    color: #ff5555;
+}
+
+.minecraft-modal-body {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    padding: 20px !important;
+    border: 2px solid #1d1d1d;
+    font-family: 'MCText Regular' !important;
+    font-size: 1.2rem !important;
+    color: #e0e0e0 !important;
+}
+
+.minecraft-modal-footer {
+    border-top: none !important;
+    padding: 10px 15px 20px !important;
+    justify-content: center !important;
+    gap: 15px;
+}
+
+.minecraft-modal-title svg {
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,1));
 }
 
 /* ===========================

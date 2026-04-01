@@ -2,9 +2,9 @@ import CustomContainer from "@/components/layout/CustomContainer";
 import { Col, Row, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ContentWrapper from "../layout/ContentWrapper";
-import IfAuthenticated from "../auth/IfAuthenticated";
-import IfNotAuthenticated from "../auth/IfNotAuthenticated";
+import ContentWrapper from "@/components/layout/ContentWrapper";
+import IfAuthenticated from "@/components/auth/IfAuthenticated";
+import IfNotAuthenticated from "@/components/auth/IfNotAuthenticated";
 
 const Inicio = () => {
   const [modalShown, setModalShown] = useState(false);

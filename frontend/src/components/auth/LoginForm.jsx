@@ -2,7 +2,6 @@ import CustomContainer from "@/components/layout/CustomContainer";
 import { useAuth } from "@/hooks/useAuth";
 import PasswordInput from "./PasswordInput";
 import { Alert } from "react-bootstrap";
-import CustomCheckbox from "./CustomCheckbox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CONSTANTS } from "@/constants";
@@ -44,7 +43,7 @@ const LoginForm = () => {
                         </Alert>
                     )}
                     <form onSubmit={handleSubmit}>
-                        <label>Usuario o email</label>
+                        <label>Usuario</label>
                         <input
                             type="text"
                             name="username"
@@ -57,13 +56,7 @@ const LoginForm = () => {
                             value={formState.password}
                             onChange={handleChange}
                             name="password"
-                            className="mb-5"
-                        />
-
-                        <CustomCheckbox
-                            checked={formState.keepLoggedIn}
-                            onChange={(newValue) => setFormState(prev => ({ ...prev, keepLoggedIn: newValue }))}
-                            label="Mantener sesión iniciada"
+                            className="mb-4"
                         />
 
                         <hr className="minecraft-hr" />

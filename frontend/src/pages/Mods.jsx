@@ -53,10 +53,14 @@ const ModsContent = ({ reqConfig }) => {
             if (!file) throw new Error("Falta el archivo .jar");
 
             const formData = new FormData();
+
             formData.append('file', file);
-            formData.append('data', JSON.stringify(nuevo));
+
+            const modJsonBlob = new Blob([JSON.stringify(nuevo)], { type: 'application/json' });
+            formData.append('modData', modJsonBlob);
 
             await postData(reqConfig.baseUrl, formData);
+            
             setTempMod(null);
             setShowModModal(false);
             setError(null);

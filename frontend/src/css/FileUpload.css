@@ -1,61 +1,77 @@
+/* ===========================
+   FILE UPLOAD MINECRAFT STYLE
+   =========================== */
+
 .upload-card {
-  background-color: var(--background-color) !important;
+  background-color: var(--primary-color) !important;
   color: var(--text-color);
   font-family: 'MCText Regular';
   padding: var(--spacing-lg);
   cursor: pointer;
-  border: 3px dashed var(--btn-primary-border-color);
+  border: 4px solid var(--btn-primary-border-color);
+  box-shadow: 
+    inset 4px 4px 0 #1d1d1d, 
+    inset -4px -4px 0 var(--btn-tertiary-inner-shadow-color);
   border-radius: 0;
   text-align: center;
-
-  
-  transition: transform 0.1s, box-shadow 0.1s, border-color 0.1s;
+  transition: all 0.1s;
 }
 
 .upload-card:hover {
-  border-color: var(--btn-primary-inner-border-lt-color);
   background-color: var(--secondary-color);
+  box-shadow: 
+    inset 4px 4px 0 #2d2d2d, 
+    inset -4px -4px 0 var(--accent-color);
 }
 
 .upload-card.highlight {
+  background-color: var(--btn-primary-inner-hover-color);
   border-color: var(--btn-primary-inner-border-br-color);
-  background-color: var(--secondary-color);
-  box-shadow:
-    inset 6px 6px 0 var(--btn-primary-inner-border-lt-color),
-    inset -6px -6px 0 var(--btn-primary-inner-border-br-color),
-    6px 6px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    inset 6px 6px 0 var(--btn-primary-inner-shadow-color),
+    0 0 15px var(--added-color);
 }
 
 .upload-card h2 {
   font-family: 'MCTitles';
-  font-size: 1.8rem;
-  color: var(--accent-color);
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+  font-size: 1.6rem;
+  color: var(--text-color);
+  text-shadow: 2px 2px 0px #000;
 }
 
 .upload-card p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--accent-color);
 }
 
-.upload-card .file-list {
-  margin-top: var(--spacing-md);
-  text-align: left;
-  padding: 0;
-  list-style: none;
+.file-list {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px !important;
+  border: 2px solid #1d1d1d;
+  margin-top: 15px;
+}
+
+.file-list li {
   font-family: 'MCText Regular';
-  font-size: 1.2rem;
+  border-bottom: 2px solid var(--primary-color) !important;
+  padding: 5px 0;
 }
 
-.upload-card .file-list li {
-  margin-bottom: var(--spacing-xs);
-  color: var(--text-color);
+.mc-remove-btn {
+  background: var(--btn-danger-inner-color);
+  border: 2px solid #000;
+  color: white;
+  width: 24px;
+  height: 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px dashed var(--hr-bottom-color);
-  padding-bottom: var(--spacing-xs);
+  justify-content: center;
+  font-family: 'MCTitles';
+  font-size: 14px;
+  box-shadow: inset -2px -2px 0 var(--btn-danger-inner-shadow-color);
+  cursor: pointer;
 }
 
-.upload-card .btn-close {
-  filter: invert(1);
+.mc-remove-btn:hover {
+  background: var(--btn-danger-inner-hover-color);
 }

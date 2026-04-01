@@ -65,32 +65,35 @@ const FileUpload = forwardRef(({ onFilesSelected }, ref) => {
       role="button"
     >
       <div className="text-center">
-        <h2 className="mb-3">📎 Subir archivo</h2>
-        <p>
-          Arrastra o haz click para seleccionar archivos (Máx. 100MB)
+        <h2 className="mb-2">SUBIR MOD (.JAR)</h2>
+        <p className="m-0">
+          Arrastra el archivo o haz click aquí
         </p>
+        <small style={{color: 'var(--btn-tertiary-inner-shadow-color)'}}>Máximo 100MB</small>
+        
         <input
           ref={fileInputRef}
           type="file"
           accept=".jar"
-          multiple
           className="d-none"
           onChange={handleInputChange}
         />
+
         {selectedFiles.length > 0 && (
-          <ul className="file-list text-start mt-4 px-3">
+          <ul className="file-list list-unstyled mt-3">
             {selectedFiles.map((file, idx) => (
-              <li
-                key={idx}
-                className="d-flex justify-content-between align-items-center mb-2"
-              >
-                <span>📄 {file.name}</span>
-                <CloseButton
+              <li key={idx} className="d-flex justify-content-between align-items-center">
+                <span className="text-truncate">📦 {file.name}</span>
+                <button
+                  type="button"
+                  className="mc-remove-btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     removeFile(idx);
                   }}
-                />
+                >
+                  X
+                </button>
               </li>
             ))}
           </ul>

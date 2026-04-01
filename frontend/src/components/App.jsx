@@ -1,17 +1,20 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "./layout/Header";
-import Inicio from "./pages/Inicio";
-import Mods from "./pages/Mods";
-import Jugadores from "./pages/Jugadores";
+import Inicio from "../pages/Inicio";
+import Mods from "../pages/Mods";
+import Jugadores from "../pages/Jugadores";
 import Footer from "./layout/Footer";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+import Login from "../pages/Login";
+import Profile from "../pages/Profile";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import { CONSTANTS } from "@/constants";
+import useSessionRenewal from "@/hooks/useSessionRenewal";
 
 const App = () => {
     const location = useLocation().pathname.replace(import.meta.env.BASE_URL, '/');
     const routesWithFooter = ["/", "/login"]
+    const { modal: renewalModal } = useSessionRenewal();
+    
     return (
         <>
             <Header />
@@ -36,6 +39,7 @@ const App = () => {
                 <Route path="/privacidad" element={null} />
             </Routes>
             {routesWithFooter.includes(location) ? <Footer /> : null}
+            {renewalModal}
         </>
     );
 }

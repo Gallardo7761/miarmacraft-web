@@ -4,7 +4,7 @@ import { Modal, Button } from "react-bootstrap";
 
 const CustomModal = ({ show, onClose, title = null, children }) => {
     return (
-        <Modal show={show} onHide={onClose} size="md" centered>
+        <Modal show={show} onHide={onClose} size="md" centered className="minecraft-modal-wrapper" > 
             {title && (
                 <Modal.Header className='justify-content-between rounded-top-4'>
                     <Modal.Title>{title}</Modal.Title>

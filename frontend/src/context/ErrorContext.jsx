@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from 'react';
-import NotificationModal from '@/components/NotificationModal';
+import NotificationModal from '@/components/modals/NotificationModal';
 
 const ErrorContext = createContext();
 
