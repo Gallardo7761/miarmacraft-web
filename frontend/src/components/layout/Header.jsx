@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import IfAuthenticated from '@/components/auth/IfAuthenticated.jsx';
 import IfNotAuthenticated from '@/components/auth/IfNotAuthenticated.jsx';
 import IfRole from '@/components/auth/IfRole.jsx';
-import { CONSTANTS } from '@/constants.js';
+import { CONSTANTS } from '@/util/constants.js';
 import { useAuth } from '@/hooks/useAuth.js';
 import ProfilePicture from '@/components/auth/ProfilePicture.jsx';
 import Icons from '@/icons.jsx';
@@ -44,7 +44,7 @@ const Header = () => {
                             INICIO
                         </div>
                     </Link>
-                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
+                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE, CONSTANTS.PLAYER_ROLE]}>
                         <Link to="mods" className='nav-link'>
                             <div className='align-items-center d-flex gap-2'>
                                 {Icons.AddGrid}

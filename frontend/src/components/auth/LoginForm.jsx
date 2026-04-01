@@ -4,7 +4,7 @@ import PasswordInput from "./PasswordInput";
 import { Alert } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CONSTANTS } from "@/constants";
+import { CONSTANTS } from "@/util/constants";
 
 const LoginForm = () => {
     const { login, error } = useAuth();

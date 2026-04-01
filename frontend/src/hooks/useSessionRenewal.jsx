@@ -80,12 +80,12 @@ const useSessionRenewal = () => {
       variant="info"
       buttons={[
         {
-          label: "Renovar sesión",
+          label: "Renovar sesion",
           variant: "success",
           onClick: handleRenew,
         },
         {
-          label: "Cerrar sesión",
+          label: "Cerrar sesion",
           variant: "danger",
           onClick: () => {
             logout();

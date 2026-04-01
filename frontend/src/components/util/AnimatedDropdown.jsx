@@ -45,11 +45,18 @@ const AnimatedDropdown = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isControlled, onToggle]);
 
-  const triggerElement = trigger
-    ? (typeof trigger === "function"
-      ? trigger({ onClick: toggle, ref: triggerRef })
-      : cloneElement(trigger, { onClick: toggle, ref: triggerRef }))
-    : (
+  const renderTrigger = () => {
+    if (typeof trigger === "function") {
+      return trigger({ onClick: toggle, ref: triggerRef });
+    }
+    if (trigger) {
+      return (
+        <div ref={triggerRef} onClick={toggle} className="d-inline-block">
+          {trigger}
+        </div>
+      );
+    }
+    return (
       <Button
         ref={triggerRef}
         variant={variant}
@@ -59,6 +66,7 @@ const AnimatedDropdown = ({
         {icon}
       </Button>
     );
+  };
 
   const dropdownClasses = `dropdown-menu show px-2 py-2 ${className}`;
 
@@ -70,7 +78,7 @@ const AnimatedDropdown = ({
       onMouseLeave={onMouseLeave}
       ref={triggerRef}
     >
-      {triggerElement}
+      {renderTrigger()}
 
       <AnimatePresence>
         {actualOpen && (

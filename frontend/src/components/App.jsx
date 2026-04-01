@@ -7,7 +7,7 @@ import Footer from "./layout/Footer";
 import Login from "../pages/Login";
 import Profile from "../pages/Profile";
 import ProtectedRoute from "./auth/ProtectedRoute";
-import { CONSTANTS } from "@/constants";
+import { CONSTANTS } from "@/util/constants";
 import useSessionRenewal from "@/hooks/useSessionRenewal";
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Inicio />} />
                 <Route path="/mods" element={
-                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
+                    <ProtectedRoute minimumRoles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE, CONSTANTS.PLAYER_ROLE]}>
                         <Mods />
                     </ProtectedRoute>
                 } />

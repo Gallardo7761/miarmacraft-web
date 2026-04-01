@@ -99,8 +99,12 @@ h6 {
 }
 
 p {
-    font-family: 'MCText Regular';
     margin-bottom: 1em;
+}
+
+p, label, small {
+    font-size: 1.1em;
+    font-family: 'MCText Regular';
 }
 
 /* ===========================

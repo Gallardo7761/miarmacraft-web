@@ -11,6 +11,8 @@ import CustomModal from '@/components/modals/CustomModal';
 import ModListByDate from '@/components/mods/ModListByDate';
 import Mod from '@/components/mods/Mod';
 import { errorParser } from '@/util/parsers/errorParser';
+import IfRole from '@/components/auth/IfRole';
+import { CONSTANTS } from '@/util/constants';
 
 const Mods = () => {
     const { config, configLoading } = useConfig();
@@ -90,10 +92,12 @@ const ModsContent = ({ reqConfig }) => {
         <CustomContainer>
             <ContentWrapper>
                 <div className="m-0 p-0 gap-2 mb-3 d-flex">
-                    <button className="minecraft-btn" onClick={handleCreate}>Nuevo mod</button>
+                    <IfRole roles={[CONSTANTS.ADMIN_ROLE, CONSTANTS.DEV_ROLE]}>
+                        <button className="minecraft-btn" onClick={handleCreate}>Nuevo mod</button>
+                    </IfRole>
                     <button
                         className='minecraft-btn'
-                        onClick={() => { window.open("https://miarma.net/files/miarmacraft/MiarmaPack.zip", "_blank"); }}
+                        onClick={() => { window.open("https://miarma.net/files/miarmacraft/MiarmaPack.zip"); }}
                     >
                         Descargar modpack
                     </button>

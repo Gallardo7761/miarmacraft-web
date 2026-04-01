@@ -1,7 +1,7 @@
 import Icons from "@/icons";
 import PropTypes from "prop-types";
 import IfRole from "../auth/IfRole";
-import { CONSTANTS } from "@/constants";
+import { CONSTANTS } from "@/util/constants";
 import AnimatedDropdown from "../util/AnimatedDropdown";
 import FileUpload from '@/components/inputs/FileUpload';
 import { useState } from "react";

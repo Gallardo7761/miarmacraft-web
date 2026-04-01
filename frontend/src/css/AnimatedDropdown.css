@@ -36,11 +36,13 @@
 }
 
 .dropdown-item:hover {
-  background-color: var(--secondary-color) !important;
+  background-color: transparent !important;
+  filter: brightness(0.8);
 }
 
 .dropdown-item:active {
-  background-color: var(--btn-primary-inner-hover-color) !important;
+  background-color: transparent !important;
+  filter: brightness(0.6);
 }
 
 .disabled.text-muted,

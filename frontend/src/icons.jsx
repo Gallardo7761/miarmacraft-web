@@ -146,6 +146,16 @@ const Icons = {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
+        >
+            <path d="M16 2v4h6v2h-2v14H4V8H2V6h6V2h8zm-2 2h-4v2h4V4zm0 4H6v12h12V8h-4zm-5 2h2v8H9v-8zm6 0h-2v8h2v-8z" fill="currentColor" />
+        </svg>,
+
+    TrashRed:
+        <svg
+            className='pixel-icon'
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
             style={{ color: 'var(--removed-color)' }}
         >
             <path d="M16 2v4h6v2h-2v14H4V8H2V6h6V2h8zm-2 2h-4v2h4V4zm0 4H6v12h12V8h-4zm-5 2h2v8H9v-8zm6 0h-2v8h2v-8z" fill="currentColor" />
@@ -179,6 +189,16 @@ const Icons = {
             viewBox="0 0 24 24"
         >
             <path d="M5 5h2v2H5V5zm4 4H7V7h2v2zm2 2H9V9h2v2zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm2-2v2h-2V9h2zm2-2v2h-2V7h2zm0 0V5h2v2h-2z" fill="currentColor" />
+        </svg>,
+
+    Key:
+        <svg
+            className='pixel-icon'
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+            <path d="M12 2H6v8h2v2h2v10h2v-2h2v-2h-2v-2h2v-2h-2V2zM10 4h2v6h-2V4zm-2 0V2h2v2H8zm0 2h2v2H8V6z" fill="currentColor" />
         </svg>,
 }
 
