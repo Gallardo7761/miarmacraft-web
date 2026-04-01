@@ -42,11 +42,11 @@ public class UserMetadataService {
     }
 
     @CacheEvict(
-            value = {
-                    "metadataByUserId",
-                    "metadataExists"
-            },
-            key = "#p0"
+        value = {
+            "metadataByUserId",
+            "metadataExists"
+        },
+        key = "#p0"
     )
     public UserMetadata update(UUID userId, UserMetadata changes) {
         byte[] idBytes = UuidUtil.uuidToBin(userId);
@@ -58,5 +58,16 @@ public class UserMetadataService {
         if (changes.getDeactivatedAt() != null) metadata.setDeactivatedAt(changes.getDeactivatedAt());
 
         return repository.save(metadata);
+    }
+
+    @CacheEvict(
+        value = {
+            "metadataByUserId",
+            "metadataExists"
+        },
+        key = "#p0"
+    )
+    public void delete(UUID userId) {
+        repository.deleteById(UuidUtil.uuidToBin(userId));
     }
 }

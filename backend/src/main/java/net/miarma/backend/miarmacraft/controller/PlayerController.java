@@ -1,7 +1,6 @@
 package net.miarma.backend.miarmacraft.controller;
 
-import net.miarma.backend.miarmacraft.dto.PlayerDto;
-import net.miarma.backend.miarmacraft.dto.StatusDto;
+import net.miarma.backend.miarmacraft.dto.*;
 import net.miarma.backend.miarmacraft.security.MinecraftPrincipal;
 import net.miarma.backend.miarmacraft.service.PlayerService;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -64,5 +64,21 @@ public class PlayerController {
     ) {
         StatusDto updated = playerService.updateStatus(userId, status);
         return ResponseEntity.ok(updated);
+    }
+
+    @PostMapping
+    @PreAuthorize("hasAnyRole('MINECRAFT_ROLE_ADMIN', 'MINECRAFT_ROLE_DEV')")
+    public ResponseEntity<CreatedPlayerResponse> create(
+        @RequestBody CreatePlayerDto dto
+    ) {
+        return ResponseEntity.ok(playerService.create(dto));
+    }
+
+    @PostMapping("/{userId}/password")
+    @PreAuthorize("hasAnyRole('MINECRAFT_ROLE_ADMIN', 'MINECRAFT_ROLE_DEV')")
+    public ResponseEntity<Map<String, String>> resetPassword(
+        @PathVariable("userId") UUID userId
+    ) {
+        return ResponseEntity.ok(Map.of("password", playerService.resetPassword(userId)));
     }
 }

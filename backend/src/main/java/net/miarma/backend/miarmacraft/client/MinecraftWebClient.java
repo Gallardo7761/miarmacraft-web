@@ -1,5 +1,6 @@
 package net.miarma.backend.miarmacraft.client;
 
+import net.miarma.backend.miarmacraft.dto.CreatePlayerDto;
 import net.miarma.backend.miarmacraft.dto.CreateUserRequestDto;
 import net.miarma.backlib.dto.*;
 import net.miarma.backlib.exception.*;
@@ -13,6 +14,7 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Component
@@ -113,6 +115,31 @@ public class MinecraftWebClient {
         return new UserWithCredentialDto(createdUser, createdCred);
     }
 
+    public UserWithCredentialDto register(CreatePlayerDto dto) {
+        RegisterRequest regReq = new RegisterRequest(
+            dto.displayName(),
+            dto.username(),
+            null,
+            dto.password(),
+            (byte) 1
+        );
+
+        ResponseEntity<LoginResponse> response = restTemplate.postForEntity(
+            coreUrl + "/auth/register",
+            regReq,
+            LoginResponse.class
+        );
+
+        if (!response.getStatusCode().is2xxSuccessful()) {
+            handleError(response);
+        }
+
+        LoginResponse body = response.getBody();
+        if (body == null) throw new RuntimeException("Error durante el registro");
+
+        return new UserWithCredentialDto(body.user(), body.account());
+    }
+
     public void updateUser(UUID userId, UserWithCredentialDto dto) {
         HttpEntity<UserDto> userRequestEntity = new HttpEntity<>(dto.user());
         ResponseEntity<Void> userResponse = restTemplate.exchange(
@@ -188,6 +215,23 @@ public class MinecraftWebClient {
         if (!response.getStatusCode().is2xxSuccessful()) {
             handleError(response);
         }
+    }
+
+    public String resetPassword(UUID userId, Byte serviceId) {
+        HttpEntity<?> requestEntity = new HttpEntity<>(new Object());
+        ResponseEntity<Map> response = restTemplate.exchange(
+                coreUrl + "/auth/reset-password/{serviceId}/{userId}",
+                HttpMethod.POST,
+                requestEntity,
+                Map.class,
+                serviceId, userId
+        );
+
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            handleError(response);
+        }
+
+        return (String) response.getBody().get("password");
     }
 
     private void handleError(ResponseEntity<?> response) {
