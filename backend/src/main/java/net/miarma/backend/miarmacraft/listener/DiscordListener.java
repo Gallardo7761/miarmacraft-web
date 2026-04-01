@@ -22,8 +22,8 @@ public class DiscordListener {
     @EventListener
     public void handleModAction(ModActionEvent event) {
         Message message = Objects.equals(event.action(), "added") ?
-                new Message().setContent("Se ha añadido el mod **" + event.name() + "** a la lista @everyone") :
-                new Message().setContent("Se ha eliminado el mod **" + event.name() + "** de la lista @everyone");
+                new Message().setContent("Se ha añadido el mod **" + event.name() + "** a la lista <@&1488909710110490778>") :
+                new Message().setContent("Se ha eliminado el mod **" + event.name() + "** de la lista <@&1488909710110490778>");
         sendWebhookMessage(message);
     }
 

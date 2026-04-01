@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -45,19 +46,34 @@ public class ModController {
         );
     }
 
-    @PostMapping
+    @PostMapping(consumes = {"multipart/form-data"})
     @PreAuthorize("hasAnyRole('MINECRAFT_ROLE_ADMIN', 'MINECRAFT_ROLE_DEV')")
-    public ResponseEntity<ModDto.Response> create(@RequestBody ModDto.Request request) {
-        Mod savedMod = modService.save(ModMapper.toEntity(request));
-        eventPublisher.publishEvent(new ModActionEvent(savedMod.getName(), "added"));
+    public ResponseEntity<ModDto.Response> create(
+        @RequestPart("modData") ModDto.Request request,
+        @RequestPart("file")MultipartFile file
+    ) {
+        String url = "/files/miarmacraft/" + fileService.store(file);
+        Mod modEntity = ModMapper.toEntity(request);
+        modEntity.setModId(UUID.randomUUID());
+        modEntity.setUrl(url);
+        Mod savedMod = modService.save(modEntity);
+        eventPublisher.publishEvent(new ModActionEvent(savedMod.getName(),
+                savedMod.getStatus() == (byte)1 ? "added" : "deleted"));
         return ResponseEntity.ok(ModMapper.toResponse(savedMod));
     }
 
     @DeleteMapping("/{modId}")
     @PreAuthorize("hasAnyRole('MINECRAFT_ROLE_ADMIN', 'MINECRAFT_ROLE_DEV')")
     public ResponseEntity<ModDto.Response> delete(@PathVariable("modId") UUID modId) {
+        Mod modToDelete = modService.getById(modId);
+
+        String url = modToDelete.getUrl();
+        if (url != null && url.contains("/")) {
+            String filename = url.substring(url.lastIndexOf("/") + 1);
+            fileService.delete(filename);
+        }
+
         Mod deletedMod = modService.delete(modId);
-        eventPublisher.publishEvent(new ModActionEvent(deletedMod.getName(), "deleted"));
         return ResponseEntity.ok(ModMapper.toResponse(deletedMod));
     }
 }

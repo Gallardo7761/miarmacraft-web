@@ -14,6 +14,10 @@ logging:
   level:
     org.hibernate.SQL: WARN
 
+backlib:
+  upload:
+    path: ${MINECRAFT_UPLOAD_PATH}
+
 core:
   url: http://core:8080/v2/core
 

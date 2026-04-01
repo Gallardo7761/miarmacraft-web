@@ -15,6 +15,10 @@ logging:
     org.hibernate.SQL: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
 
+backlib:
+  upload:
+    path: /home/jomaa/Documentos/backend/miarmacraft
+
 core:
   url: http://localhost:8080/v2/core
 
