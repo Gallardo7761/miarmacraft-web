@@ -85,7 +85,7 @@ const Mod = ({ mod, isNew, fileRef, onCreate, onUpdate, onDelete, onSelectFiles,
       <div className="m-0 p-0 d-flex align-items-center gap-2 flex-wrap justify-content-end">
         {mod.url !== "no" && isActive && (
           <a
-            href={mod.url}
+            href={"https://miarma.net" + mod.url}
             className="minecraft-btn flex-shrink-0"
             target="_blank"
             rel="noopener noreferrer"
