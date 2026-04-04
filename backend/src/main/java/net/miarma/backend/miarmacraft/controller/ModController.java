@@ -52,7 +52,7 @@ public class ModController {
         @RequestPart("modData") ModDto.Request request,
         @RequestPart("file")MultipartFile file
     ) {
-        String url = "/files/miarmacraft/" + fileService.store(file);
+        String url = "/files/miarmacraft/mods/" + fileService.store(file);
         Mod modEntity = ModMapper.toEntity(request);
         modEntity.setModId(UUID.randomUUID());
         modEntity.setUrl(url);
