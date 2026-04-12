@@ -6,3 +6,4 @@
 # backend
 /backend/.idea/
 /backend/target/
+/backend/.env

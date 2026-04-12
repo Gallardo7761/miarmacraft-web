@@ -1,0 +1,40 @@
+services:
+  minecraft:
+    image: eclipse-temurin:25-jdk
+    container_name: minecraft
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:10001:10001"
+
+    networks:
+      - backend-dev-net
+
+    volumes:
+      - ./target:/data
+      - /home/jomaa/.config/backend/private.pem:/etc/backend/private.pem:ro
+      - /home/jomaa/.config/backend/public.pem:/etc/backend/public.pem:ro
+
+    working_dir: /data
+    command: ["java", "-jar", "minecraft-1.0.0.jar"]
+
+    environment:
+      - SERVER_PORT=${MINECRAFT_PORT}
+      - SERVER_SERVLET_CONTEXT_PATH=${MINECRAFT_CONTEXT_PATH}
+      - SPRING_APPLICATION_NAME=${SPRING_APPLICATION_NAME_MINECRAFT}
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - JWT_PRIVATE_KEY_PATH=${JWT_PRIVATE_KEY_PATH}
+      - JWT_PUBLIC_KEY_PATH=${JWT_PUBLIC_KEY_PATH}
+      - JWT_EXPIRATION_MS=${JWT_EXPIRATION_MS}
+      - CORE_URL=${CORE_URL}
+      - MINECRAFT_USER=${MINECRAFT_USER}
+      - MINECRAFT_PASS=${MINECRAFT_PASS}
+      - MINECRAFT_UPLOAD_PATH=${MINECRAFT_UPLOAD_PATH}
+      - SPRING_PROFILES_ACTIVE=dev
+      - DISCORD_URL=${DISCORD_URL}
+
+networks:
+  backend-dev-net:
+    external: true
